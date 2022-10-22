@@ -18,3 +18,21 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.cplusplus {
+  height: 10%;
+}
+.nextjs {
+  height: 10%;
+}
+
+.tailwindcss {
+  height: 60%;
+}
+
+.reactjs {
+  height: 60%;
+}
+.javascript {
+  height: 90%;
+}
