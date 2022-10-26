@@ -1,7 +1,14 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-no-target-blank */
 import Head from "next/head";
 import { useState } from "react";
-import { BsGithub, BsLinkedin, BsFillMoonStarsFill } from "react-icons/bs";
+import {
+  BsGithub,
+  BsLinkedin,
+  BsFillMoonStarsFill,
+  BsBriefcaseFill,
+} from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
 import {
   SiReact,
@@ -18,6 +25,7 @@ import {
   SiCss3,
   SiLua,
 } from "react-icons/si";
+import { FaGraduationCap } from "react-icons/fa";
 0;
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -231,7 +239,7 @@ export default function Home() {
                   <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
                     <div className="html h-full bg-blue-600 dark:bg-lime-500"></div>
                   </div>
-                </div>{" "}
+                </div>
                 <div className="flex flex-row h-full">
                   <p className=" text-7xl py-3 text-blue-900">
                     <SiCss3 />
@@ -255,83 +263,80 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>{" "}
+            </div>
             <div className=" my-36 flex flex-col w-full">
               <h3 className="text-3xl font-semibold py-3 text-center text-blue-600 dark:text-lime-500">
                 My Timeline
               </h3>
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2 justify-around h-full">
-                <div className="flex flex-row">
-                  <p className="text-7xl py-3 text-blue-900">
-                    <SiJava />
+              <div className="grid grid-cols-1 mx-10 my-10 md:grid-cols-2 h-full">
+                <div className="mx-4 border-b-2 border-opacity-70 dark:border-lime-500 border-blue-600">
+                  <div className="dark:text-lime-500 flex text-blue-600">
+                    <FaGraduationCap className="text-5xl" />
+                    <p className="self-center ml-3 text-neutral-700 text-xl dark:text-slate-200">
+                      Brunel University, London
+                    </p>
+                  </div>
+                  <p className="bg-blue-600 dark:bg-lime-500 bg-opacity-70 px-5 w-fit font-bold p-1 rounded-3xl text-neutral-700 dark:text-slate-200">
+                    Sept 2021 - present
                   </p>
-                  <p className="text-slate-200 self-center mx-3 ">90%</p>
-                  <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
-                    <div className="java h-full bg-blue-600 dark:bg-lime-500"></div>
+                  <div className=" -mt-1 ">
+                    <p className="p-4 text-neutral-700 dark:text-slate-200">
+                      Computer science student at Brunel University.
+                    </p>
                   </div>
                 </div>
-                <div className="flex flex-row">
-                  <p className=" text-7xl py-3 text-lime-500">
-                    <SiSpring />
-                  </p>
-                  <p className="text-slate-200 self-center mx-3">50%</p>
-                  <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
-                    <div className="spring h-full bg-blue-600 dark:bg-lime-500"></div>
+                <div className="mx-4 border-b-2 border-opacity-70 dark:border-lime-500 border-blue-600">
+                  <div className="dark:text-lime-500 flex text-blue-600">
+                    <BsBriefcaseFill className="text-5xl" />
+                    <p className="self-center ml-3 text-neutral-700 text-xl dark:text-slate-200">
+                      BTMG USA - Software Tester (Remote), Chicago, IL
+                    </p>
                   </div>
-                </div>
-                <div className="flex flex-row">
-                  <p className=" text-7xl py-3 text-cyan-600">
-                    <SiCsharp />
+                  <p className=" bg-blue-600 dark:bg-lime-500 bg-opacity-70 px-5 w-fit font-bold p-1 rounded-3xl text-neutral-700 dark:text-slate-200">
+                    August 2022 - present
                   </p>
-                  <p className="text-slate-200 self-center mx-3 ">80%</p>
-                  <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-whitee h-3">
-                    <div className="csharp h-full bg-blue-600 dark:bg-lime-500"></div>
-                  </div>
-                </div>
-                <div className="flex flex-row">
-                  <p className=" text-7xl py-3 text-yellow-300">
-                    <SiPython />
-                  </p>
-                  <p className="text-slate-200 self-center mx-3 ">90%</p>
-                  <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
-                    <div className="python h-full bg-blue-600 dark:bg-lime-500"></div>
-                  </div>
-                </div>
-                <div className="flex flex-row h-full">
-                  <p className=" text-7xl py-3 text-orange-600">
-                    <SiHtml5 />
-                  </p>
-                  <p className="text-slate-200 self-center mx-3 ">100%</p>
-                  <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
-                    <div className="html h-full bg-blue-600 dark:bg-lime-500"></div>
-                  </div>
-                </div>{" "}
-                <div className="flex flex-row h-full">
-                  <p className=" text-7xl py-3 text-blue-900">
-                    <SiCss3 />
-                  </p>
-                  <p className="text-slate-200 self-center mx-3 ">100%</p>
-                  <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
-                    <div className="css h-full bg-blue-600 dark:bg-lime-500"></div>
-                  </div>
-                </div>
-                <div className="flex flex-row h-full">
-                  <p className=" text-7xl py-3 text-blue-800">
-                    <SiLua />
-                  </p>
-                  <p className="text-slate-200 self-center mx-3 ">65%</p>
-                  <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
-                    <div className="lua h-full bg-blue-600 dark:bg-lime-500"></div>
+                  <div className=" -mt-1 ">
+                    <p className="p-4 text-neutral-700 dark:text-slate-200">
+                      Working alongside a Senior Software Engineer, rigorously
+                      testing real world software developed for clients.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        <section className="bg-neutral-50 dark:bg-black border-t-2 border-blue-600 dark:border-lime-500 ">
+          <div className="py-3 px-4">
+            <h1 className="text-4xl mt-20 text-neutral-700 dark:text-slate-200 text-center font-medium">
+              Portfolio
+            </h1>
+            <div className="grid  grid-cols-1 justify-items-center mb-10 mt-20 md:grid-cols-3 h-full">
+              <a
+                className="w-fit"
+                href="https://github.com/divizn/discord-spotify-bot"
+                target="_blank"
+              >
+                <img src="https://github-readme-stats.vercel.app/api/pin/?username=divizn&repo=discord-spotify-bot&hide_border=true&theme=dark&bg_color=0d1117" />
+              </a>
+              <a
+                className="w-fit"
+                href="https://github.com/divizn/react-weather-app"
+                target="_blank"
+              >
+                <img src="https://github-readme-stats.vercel.app/api/pin/?username=divizn&repo=react-weather-app&hide_border=true&theme=dark&bg_color=0d1117" />
+              </a>
+            </div>
+            <div className="h-screen"></div>
+          </div>
+        </section>
         <section className=" bg-neutral-50 dark:bg-black border-t-2 border-blue-600 dark:border-lime-500 ">
           <div className="flex flex-col w-full items-center ">
+            <h1 className="text-neutral-700 font-medium  dark:text-slate-200 mt-20 text-4xl">
+              Resume/CV
+            </h1>
             <embed
-              className="mt-48 mb-8 inline-block w-1/2 min-h-screen"
+              className=" mt-24 mb-8 inline-block w-1/2 min-h-screen"
               src="CV Hassan Javed.pdf"
             />
             <div className="flex">
@@ -340,7 +345,7 @@ export default function Home() {
                 target="_blank"
               >
                 <samp className=" dark:text-lime-500 text-blue-600 underline text-3xl mr-4">
-                  Download CV
+                  PDF
                 </samp>
               </a>
               <h1 className="dark:text-lime-500 text-blue-600 text-3xl pb-8 pt-1">
