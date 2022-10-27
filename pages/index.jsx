@@ -333,6 +333,13 @@ export default function Home() {
               >
                 <img src="https://github-readme-stats.vercel.app/api/pin/?username=divizn&repo=legacy-portfolio-site&hide_border=true&theme=dark&bg_color=0d1117" />
               </a>
+              <a
+                className="w-fit"
+                href="https://github.com/divizn/portfolio-site"
+                target="_blank"
+              >
+                <img src="https://github-readme-stats.vercel.app/api/pin/?username=divizn&repo=portfolio-site&hide_border=true&theme=dark&bg_color=0d1117" />
+              </a>
             </div>
             <div className="h-screen"></div>
           </div>
