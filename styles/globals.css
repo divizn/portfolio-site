@@ -22,14 +22,16 @@ a {
 
 .cplusplus,
 .nextjs {
-  width: 10%;
+  width: 55%;
 }
 .spring {
   width: 50%;
 }
-.tailwindcss,
+.tailwindcss {
+  width: 79%;
+}
 .reactjs {
-  width: 60%;
+  width: 85%;
 }
 .lua {
   width: 65%;

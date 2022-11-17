@@ -139,7 +139,7 @@ export default function Home() {
                     <SiReact />
                   </p>
                   <p className="text-neutral-700 dark:text-slate-200 self-center mx-3">
-                    60%
+                    85%
                   </p>
                   <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
                     <div className="reactjs h-full bg-blue-600 dark:bg-lime-500"></div>
@@ -150,7 +150,7 @@ export default function Home() {
                     <SiTailwindcss />
                   </p>
                   <p className="text-neutral-700 dark:text-slate-200 self-center mx-3 ">
-                    60%
+                    79%
                   </p>
                   <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
                     <div className="tailwindcss h-full bg-blue-600 dark:bg-lime-500"></div>
@@ -161,7 +161,7 @@ export default function Home() {
                     <SiNextdotjs />
                   </p>
                   <p className="text-neutral-700 dark:text-slate-200 self-center mx-3 ">
-                    10%
+                    55%
                   </p>
                   <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
                     <div className="nextjs h-full bg-blue-600 dark:bg-lime-500"></div>
@@ -339,6 +339,13 @@ export default function Home() {
                 target="_blank"
               >
                 <img src="https://github-readme-stats.vercel.app/api/pin/?username=divizn&repo=portfolio-site&hide_border=true&theme=dark&bg_color=0d1117" />
+              </a>
+              <a
+                className="w-fit"
+                href="https://github.com/divizn/clone-sites"
+                target="_blank"
+              >
+                <img src="https://github-readme-stats.vercel.app/api/pin/?username=divizn&repo=clone-sites&hide_border=true&theme=dark&bg_color=0d1117" />
               </a>
             </div>
             <div className="h-screen"></div>
