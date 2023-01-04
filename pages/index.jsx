@@ -15,7 +15,7 @@ import {
   SiJavascript,
   SiTailwindcss,
   SiNextdotjs,
-  SiCplusplus,
+  SiC,
   SiDocusign,
   SiJava,
   SiSpring,
@@ -169,13 +169,13 @@ export default function Home() {
                 </div>
                 <div className="flex flex-row h-full">
                   <p className=" text-7xl py-3 text-blue-600">
-                    <SiCplusplus />
+                    <SiC />
                   </p>
                   <p className="text-neutral-700 dark:text-slate-200 self-center mx-3 ">
                     10%
                   </p>
                   <div className="w-full self-center mt-3 bg-neutral-700 dark:bg-white h-3">
-                    <div className="cplusplus h-full bg-blue-600 dark:bg-lime-500"></div>
+                    <div className="clang h-full bg-blue-600 dark:bg-lime-500"></div>
                   </div>
                 </div>
               </div>

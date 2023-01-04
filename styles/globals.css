@@ -20,7 +20,9 @@ a {
   box-sizing: border-box;
 }
 
-.cplusplus,
+.clang {
+  width: 10%;
+}
 .nextjs {
   width: 55%;
 }
