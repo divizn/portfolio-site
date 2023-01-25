@@ -51,7 +51,7 @@ export default function Home() {
           </nav>
           <div className="text-center text-neutral-700 dark:text-slate-200 pt-60">
             <h2 className="text-5xl py-2 font-medium">
-              Hi, I am{" "}
+              Hi, I am
               <span className="text-blue-600 dark:text-lime-500">
                 Hassan Javed
               </span>
