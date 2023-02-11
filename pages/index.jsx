@@ -26,7 +26,9 @@ import {
   SiLua,
 } from "react-icons/si";
 import { FaGraduationCap } from "react-icons/fa";
-0;
+
+// TODO: FIX THIS UGLY CODE
+
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
   return (
@@ -41,7 +43,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <section className="bg-neutral-50 dark:bg-black h-screen">
+        <section className="flex flex-col bg-neutral-50 dark:bg-black h-screen">
           <nav className="py-3 pt-10 mx-5 mb-12 ">
             <ul className="flex justify-e text-neutral-700 dark:text-slate-200 items-center text-3xl">
               <li className="mr-3">
@@ -49,7 +51,7 @@ export default function Home() {
               </li>
             </ul>
           </nav>
-          <div className="text-center text-neutral-700 dark:text-slate-200 pt-60">
+          <div className="flex flex-col items-center justify-center h-full text-center text-neutral-700 dark:text-slate-200">
             <h2 className="text-5xl py-2 font-medium">
               Hi, I am{" "}
               <span className="text-blue-600 dark:text-lime-500">
@@ -63,21 +65,20 @@ export default function Home() {
               Here you can see my journey as a software developer and what I
               have done in the past
             </p>
-          </div>
-
-          <div className="text-neutral-700 dark:text-slate-200  flex justify-center gap-16 py-3 text-3xl">
-            <a href="https://github.com/divizn" target="_blank">
-              <BsGithub />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/hassanjaved186/"
-              target="_blank"
-            >
-              <BsLinkedin />
-            </a>
-            <a href="mailto:hassanjaved186@gmail.com" target="_blank">
-              <GrMail />
-            </a>
+            <div className="text-neutral-700 dark:text-slate-200  flex justify-center gap-16 py-3 text-3xl">
+              <a href="https://github.com/divizn" target="_blank">
+                <BsGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/hassanjaved186/"
+                target="_blank"
+              >
+                <BsLinkedin />
+              </a>
+              <a href="mailto:hassanjaved186@gmail.com" target="_blank">
+                <GrMail />
+              </a>
+            </div>
           </div>
         </section>
 
