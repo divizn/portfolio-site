@@ -277,7 +277,7 @@ export default function Home() {
                       Brunel University, London
                     </p>
                   </div>
-                  <p className="bg-blue-600 dark:bg-lime-500 bg-opacity-70 px-5 w-fit font-bold p-1 rounded-3xl text-neutral-700 dark:text-slate-200">
+                  <p className="bg-blue-600 dark:bg-lime-500 bg-opacity-70 px-5 w-fit font-bold p-1 rounded-3xl text-neutral-700">
                     Sept 2021 - present
                   </p>
                   <div className=" -mt-1 ">
@@ -293,7 +293,7 @@ export default function Home() {
                       BTMG USA - Software Tester (Remote), Chicago, IL
                     </p>
                   </div>
-                  <p className=" bg-blue-600 dark:bg-lime-500 bg-opacity-70 px-5 w-fit font-bold p-1 rounded-3xl text-neutral-700 dark:text-slate-200">
+                  <p className=" bg-blue-600 dark:bg-lime-500 bg-opacity-70 px-5 w-fit font-bold p-1 rounded-3xl text-neutral-700">
                     August 2022 - present
                   </p>
                   <div className=" -mt-1 ">
