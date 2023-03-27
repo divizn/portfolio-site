@@ -45,7 +45,7 @@ export default function Home() {
       <main>
         <section className="flex flex-col bg-neutral-50 dark:bg-black h-screen">
           <nav className="py-3 pt-10 mx-5 mb-12 ">
-            <ul className="flex justify-e text-neutral-700 dark:text-slate-200 items-center text-3xl">
+            <ul className="flex text-neutral-700 dark:text-slate-200 items-center text-3xl">
               <li className="mr-3">
                 <BsFillMoonStarsFill onClick={() => setDarkMode(!darkMode)} />
               </li>
@@ -294,7 +294,7 @@ export default function Home() {
                     </p>
                   </div>
                   <p className=" bg-blue-600 dark:bg-lime-500 bg-opacity-70 px-5 w-fit font-bold p-1 rounded-3xl text-neutral-700">
-                    August 2022 - present
+                    Sept 2022 - Nov 2022
                   </p>
                   <div className=" -mt-1 ">
                     <p className="p-4 text-neutral-700 dark:text-slate-200">
