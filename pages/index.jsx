@@ -35,9 +35,10 @@ export default function Home() {
     <div className={darkMode ? "dark" : ""}>
       <Head>
         <title>Portfolio - Hassan Javed</title>
+        <meta name="title" content="Hassan Javed - Portfolio" />
         <meta
           name="description"
-          content="Computer science student and passionate software developer"
+          content="Hello, my name is Hassan Javed, a software developer and student living in the UK. Here you can see my journey as a software developer and what I have done in the past."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
