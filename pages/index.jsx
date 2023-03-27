@@ -34,12 +34,12 @@ export default function Home() {
   return (
     <div className={darkMode ? "dark" : ""}>
       <Head>
-        <title>Portfolio - Hassan Javed</title>
-        <meta name="title" content="Hassan Javed - Portfolio" />
+        <title>Hassan Javed - Portfolio</title>
         <meta
           name="description"
           content="Hello, my name is Hassan Javed, a software developer and student living in the UK. Here you can see my journey as a software developer and what I have done in the past."
         />
+        <meta name="robots" content="noindex,nofollow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
