@@ -39,6 +39,16 @@ export default function Home() {
           name="description"
           content="Hello, my name is Hassan Javed, a software developer and student living in the UK. Here you can see my journey as a software developer and what I have done in the past."
         />
+        <meta content="Hassan Javed - Portfolio" property="og:title" />
+
+        <meta
+          content="Hello, my name is Hassan Javed, a software developer and student living in the UK. Here you can see my journey as a software developer and what I have done in the past."
+          property="og:description"
+        />
+
+        <meta content="Hassan Javed - Portfolio" property="og:site_name" />
+
+        <meta content="/public/favicon.ico" property="og:image" />
         <meta name="robots" content="index,follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
