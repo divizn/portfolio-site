@@ -6,6 +6,7 @@ import {
   BsLinkedin,
 } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
+import { TypeAnimation } from "react-type-animation";
 
 const Landing = ({ getDark }) => {
   const [darkMode, setDarkMode] = useState(true);
@@ -40,14 +41,30 @@ const Landing = ({ getDark }) => {
       </div>
       <div className="flex h-full flex-col items-center justify-center p-[5%] text-center text-neutral-700 dark:text-slate-200">
         <h2 className="py-2 text-5xl font-medium">
-          Hi, I am{" "}
-          <span className="text-blue-600 dark:text-lime-500">Hassan Javed</span>
+          <span className=" text-neutral-700 dark:text-slate-200">
+            Hi, I am
+          </span>{" "}
+          <span className="text-blue-600 dark:text-lime-500">
+            <TypeAnimation
+              sequence={[
+                "Hassan Javed",
+                1000,
+                "a Software Engineer",
+                1000,
+                "a Student",
+                1000,
+                "a Developer",
+                1000,
+              ]}
+              repeat={Infinity}
+            />
+          </span>
         </h2>
-        <h3 className="py-5 text-2xl font-medium">
-          Software developer and student
+        <h3 className="-mb-3 py-5 text-xl font-medium">
+          Software engineer and student
         </h3>
         <p className="mb-10 font-medium text-neutral-700  dark:text-slate-200">
-          Here you can see my journey as a software developer and what I have
+          Here you can see my journey as a software engineer and what I have
           done in the past
         </p>
         <div className="flex justify-center  gap-16 py-3 text-3xl text-neutral-700 dark:text-slate-200">
