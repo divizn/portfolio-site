@@ -4,8 +4,8 @@ const Section = ({ children, className = "" }) => {
   return (
     <section
       className={
-        "h-full border-b-2 border-blue-600 bg-neutral-50 dark:border-lime-500 dark:bg-black md:h-auto " +
-        className
+        className +
+        "  border-b-2 border-blue-600 bg-neutral-50 transition-all duration-1000 ease-out dark:border-lime-500 dark:bg-black"
       }
     >
       {children}
