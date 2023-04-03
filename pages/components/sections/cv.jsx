@@ -1,14 +1,15 @@
 import React from "react";
 import { SiDocusign } from "react-icons/si";
 import Title from "../reusable/title";
+import Section from "../reusable/section";
 
 const Cv = () => {
   return (
-    <section className=" border-t-2 border-blue-600 bg-neutral-50 dark:border-lime-500 dark:bg-black ">
+    <Section className="hidden sm:flex">
       <div className="flex w-full flex-col items-center ">
         <Title>Resume/CV</Title>
         <embed
-          className=" mt-24 mb-8 inline-block min-h-screen w-1/2"
+          className="mt-24 mb-8 hidden min-h-screen w-1/2 sm:inline-block"
           src="CV Hassan Javed.pdf"
         />
         <div className="flex">
@@ -26,7 +27,7 @@ const Cv = () => {
           </a>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
 
