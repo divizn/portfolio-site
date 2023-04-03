@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import {
-  BsCloud,
-  BsCloudArrowUp,
-  BsDownload,
   BsFilePdf,
   BsFillMoonStarsFill,
   BsGithub,
@@ -17,7 +14,10 @@ const Landing = ({ getDark }) => {
   return (
     <section className="flex h-screen flex-col bg-neutral-50 dark:bg-black">
       <div className="flex justify-between">
-        <button className="my-10 ml-10 flex bg-neutral-50 dark:bg-black">
+        <button
+          alt="Dark Mode"
+          className="my-10 ml-10 flex bg-neutral-50 dark:bg-black"
+        >
           <BsFillMoonStarsFill
             size={40}
             className="select-none text-black dark:text-neutral-50"
@@ -25,6 +25,7 @@ const Landing = ({ getDark }) => {
           />
         </button>
         <a
+          alt="CV"
           href="https://drive.google.com/file/d/1C3KaFUDf4j-14dhSrZ8x-yDbq_JW0gVz/view?usp=sharing"
           rel="noreferrer noopener"
           target="_blank"
