@@ -18,7 +18,7 @@ const Cv = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="flex items-end text-center text-lime-500">
+            <div className="flex items-end text-center text-blue-600 dark:text-lime-500">
               <samp className="mr-4 text-3xl text-blue-600 underline dark:text-lime-500">
                 PDF
               </samp>

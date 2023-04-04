@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../reusable/title";
 import PortfolioItem from "../reusable/portfolio-items";
-import { items } from "../../lib/items";
+import { portfolioItems } from "../../lib/items";
 import Section from "../reusable/section";
 
 const Portfolio = () => {
@@ -9,8 +9,8 @@ const Portfolio = () => {
     <Section>
       <div className="mb-40 flex h-full w-full flex-col items-center ">
         <Title>Portfolio</Title>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3">
-          {items.map((item) => (
+        <div className="mx-4 mt-10 grid grid-cols-1 sm:px-6 md:grid-cols-3 md:px-10">
+          {portfolioItems.map((item) => (
             <PortfolioItem
               key={item.name}
               name={item.name}
