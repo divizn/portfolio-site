@@ -36,7 +36,11 @@ const Landing = ({ getDark }) => {
     <Section className="h-screen">
       <div className="flex h-full flex-col">
         <div className="flex justify-between">
-          <button alt="Dark Mode" className="my-10 ml-10 flex">
+          <button
+            aria-label="Dark Mode"
+            alt="Dark Mode"
+            className="my-10 ml-10 flex"
+          >
             <BsFillMoonStarsFill
               size={40}
               className="select-none text-black dark:text-neutral-50"
@@ -45,6 +49,7 @@ const Landing = ({ getDark }) => {
           </button>
           <a
             alt="CV"
+            aria-label="CV"
             href="https://drive.google.com/file/d/1C3KaFUDf4j-14dhSrZ8x-yDbq_JW0gVz/view?usp=sharing"
             rel="noreferrer noopener"
             target="_blank"

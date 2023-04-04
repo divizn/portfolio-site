@@ -14,9 +14,9 @@ const AboutMe = () => {
         <Title>About Me</Title>
         <Description />
         <div className=" mt-36 flex w-full flex-col">
-          <h3 className="py-3 text-center text-3xl font-semibold text-blue-600 dark:text-lime-500">
+          <p className="py-3 text-center text-3xl font-semibold text-blue-600 dark:text-lime-500">
             Currently working on
-          </h3>
+          </p>
           <div className=" grid h-full grid-cols-1 justify-around gap-5 md:grid-cols-2">
             {currentLanguages.map((language) => (
               <Languages
@@ -30,9 +30,9 @@ const AboutMe = () => {
           </div>
         </div>
         <div className=" mt-36 flex w-full flex-col">
-          <h3 className="py-3 text-center text-3xl font-semibold text-blue-600 dark:text-lime-500">
+          <p className="py-3 text-center text-3xl font-semibold text-blue-600 dark:text-lime-500">
             Worked on
-          </h3>
+          </p>
           <div className="grid h-full grid-cols-1 justify-around gap-5 md:grid-cols-2">
             {otherLanguages.map((language) => (
               <Languages
@@ -46,9 +46,9 @@ const AboutMe = () => {
           </div>
         </div>
         <div className=" my-36 flex w-full flex-col">
-          <h3 className="py-3 text-center text-3xl font-semibold text-blue-600 dark:text-lime-500">
+          <p className="py-3 text-center text-3xl font-semibold text-blue-600 dark:text-lime-500">
             My Timeline
-          </h3>
+          </p>
           <div className="mx-4 my-10 grid h-full grid-cols-1 sm:mx-10 md:grid-cols-2">
             {timelineItems.map((item) => (
               <TimelineItem

@@ -5,6 +5,7 @@ const Contact = ({ name, link, icon }) => {
     <a
       className="transition-all duration-700 ease-out hover:text-blue-600 dark:hover:text-lime-500"
       alt={name}
+      aria-label={name}
       href={link}
       target="_blank"
       rel="noopener noreferrer"

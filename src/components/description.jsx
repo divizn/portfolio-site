@@ -4,9 +4,9 @@ const Description = () => {
   return (
     <div className="flex w-full flex-col items-center">
       <div className="align-center mt-10 w-9/12">
-        <h3 className="py-3 text-center text-3xl font-semibold text-blue-600 dark:text-lime-500 ">
+        <p className="py-3 text-center text-3xl font-semibold text-blue-600 dark:text-lime-500 ">
           Past
-        </h3>
+        </p>
         <p className="text-center text-neutral-700  dark:text-slate-200">
           My first ever programming language was Lua on ROBLOX in 2010. 2 years
           later, I was introduced to Scratch and then Python. I have been
@@ -22,9 +22,9 @@ const Description = () => {
           </a>{" "}
           to see more skills I have developed on my journey.
         </p>
-        <h3 className="py-3 text-center text-3xl font-semibold text-blue-600  dark:text-lime-500">
+        <p className="py-3 text-center text-3xl font-semibold text-blue-600  dark:text-lime-500">
           Present
-        </h3>
+        </p>
         <p className="text-center text-neutral-700 dark:text-slate-200">
           I am constantly working on my skills and I love watching videos online
           of new things that I have never learnt before. Currently, I am
@@ -48,9 +48,9 @@ const Description = () => {
           </span>
           .
         </p>
-        <h3 className="py-3 text-center text-3xl font-semibold text-blue-600 dark:text-lime-500">
+        <p className="py-3 text-center text-3xl font-semibold text-blue-600 dark:text-lime-500">
           Future
-        </h3>
+        </p>
         <p className="text-center text-neutral-700 dark:text-slate-200">
           I want to complete university and start working as a software
           developer as soon as possible. I also really want to travel and
