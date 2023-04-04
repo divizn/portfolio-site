@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../reusable/title";
 import PortfolioItem from "../reusable/portfolio-items";
-import { portfolioItems } from "../../lib/items";
+import { portfolioItems } from "../../../lib/items";
 import Section from "../reusable/section";
 
 const Portfolio = () => {
