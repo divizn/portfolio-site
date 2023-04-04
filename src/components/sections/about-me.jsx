@@ -2,10 +2,10 @@ import React from "react";
 import Section from "../reusable/section";
 import Title from "../reusable/title";
 import Languages from "../reusable/languages";
-import { currentLanguages, otherLanguages } from "../../../lib/languages";
+import { currentLanguages, otherLanguages } from "../../lib/languages";
 import Description from "../description";
 import TimelineItem from "../reusable/timeline-items";
-import { timelineItems } from "../../../lib/items";
+import { timelineItems } from "../../lib/items";
 
 const AboutMe = () => {
   return (

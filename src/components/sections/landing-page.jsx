@@ -65,7 +65,7 @@ const Landing = ({ getDark }) => {
             <span className="text-blue-600 dark:text-lime-500">
               <TypeAnimation
                 sequence={[
-                  "Hassan Javed",
+                  "Hassan",
                   1000,
                   "a Developer",
                   1000,

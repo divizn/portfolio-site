@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { useState } from "react";
-import Portfolio from "./components/sections/portfolio";
-import Landing from "./components/sections/landing-page";
-import AboutMe from "./components/sections/about-me";
-import Cv from "./components/sections/cv";
+import Portfolio from "../components/sections/portfolio";
+import Landing from "../components/sections/landing-page";
+import AboutMe from "../components/sections/about-me";
+import Cv from "../components/sections/cv";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
