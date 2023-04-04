@@ -9,7 +9,7 @@ const TimelineItem = ({
 }) => {
   return (
     <div className="mb-8 border-b-2 border-blue-600 border-opacity-70 dark:border-lime-500 sm:mx-4">
-      <div className="mb-2 flex text-blue-600 dark:text-lime-500">
+      <div className="mb-2 flex text-3xl text-blue-600 dark:text-lime-500">
         {icon}
         <p className="ml-3 self-center text-xl text-neutral-700 dark:text-slate-200">
           {title}
