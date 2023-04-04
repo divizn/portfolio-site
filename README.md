@@ -6,4 +6,3 @@ Here is my new [portfolio site](https://hassanj.dev) which I created to replace 
 
 - TailwindCSS
 - NextJS (create-next-app)
-- react-icons
