@@ -10,6 +10,7 @@ const PortfolioItem = ({ repo, picture, name }) => {
     <a href={repo} target="_blank" rel="noopener noreferrer">
       <Image
         loader={loader}
+        unoptimized={true}
         width={500}
         height={150}
         alt={name}
