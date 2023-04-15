@@ -14,7 +14,7 @@ const Background = ({ children }) => {
     <div
       className={`z-0 flex h-screen overflow-hidden ${isDark ? "dark " : ""}`}
     >
-      <div className="flex h-full w-full items-center bg-gradient-to-b from-blue-950 to-blue-500 transition-all duration-1000 ease-in dark:from-black dark:via-neutral-950 dark:to-gray-950">
+      <div className="flex h-full w-full items-center justify-center bg-gradient-to-b from-blue-950 to-blue-500 transition-all duration-1000 ease-in dark:from-black dark:via-neutral-950 dark:to-gray-950">
         <button
           onClick={handleToggle}
           className="absolute bottom-0 right-0 text-slate-800 transition-all duration-200 ease-in hover:text-white dark:text-slate-400 dark:hover:text-white"
