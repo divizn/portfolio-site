@@ -1,12 +1,10 @@
 import Head from "next/head";
 import { useState } from "react";
-import Portfolio from "../components/sections/portfolio";
-import Landing from "../components/sections/landing-page";
-import AboutMe from "../components/sections/about-me";
-import Cv from "../components/sections/cv";
+import Background from "../components/background";
+import Container from "../components/container";
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   const getDark = (isDark) => {
     setDarkMode(isDark);
@@ -54,12 +52,11 @@ export default function Home() {
         <meta name="robots" content="index,follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${darkMode ? "dark" : ""}`}>
-        <Landing getDark={getDark} />
-        <AboutMe />
-        <Portfolio />
-        <Cv />
-      </main>
+      <div className={`flex h-full w-full flex-col ${darkMode ? "dark" : ""}`}>
+        <Background darkMode={darkMode}>
+          <Container />
+        </Background>
+      </div>
     </>
   );
 }
