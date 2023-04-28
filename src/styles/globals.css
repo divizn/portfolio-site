@@ -54,12 +54,18 @@ a {
   width: 65%;
 }
 .csharp {
-  width: 80%;
+  width: 65%;
 }
-.javascript,
-.java,
-.python {
+.javascript {
   width: 90%;
+}
+
+.python {
+  width: 85%;
+}
+
+.java {
+  width: 70%;
 }
 
 .html,
