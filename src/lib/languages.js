@@ -40,17 +40,17 @@ export const otherLanguages = [
   {
     icon: <SiJava />,
     name: "java",
-    progress: 90,
+    progress: 70,
   },
   {
     icon: <SiCsharp />,
     name: "csharp",
-    progress: 80,
+    progress: 65,
   },
   {
     icon: <SiPython />,
     name: "python",
-    progress: 90,
+    progress: 85,
   },
   {
     icon: <SiHtml5 />,
