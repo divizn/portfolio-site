@@ -62,7 +62,7 @@ const Landing = ({ getDark }) => {
             />
           </a>
         </div>
-        <div className="relative flex h-auto flex-col items-center justify-center py-[40%] px-[5%] text-center text-neutral-700 dark:text-slate-200 sm:py-[15%]">
+        <div className="relative flex h-auto flex-col items-center justify-center px-[5%] py-[40%] text-center text-neutral-700 dark:text-slate-200 sm:py-[15%]">
           <h2 className="py-2 text-3xl font-medium sm:text-5xl">
             <span className=" text-neutral-700 dark:text-slate-200">
               Hi, I am
@@ -82,7 +82,7 @@ const Landing = ({ getDark }) => {
             </span>
           </h2>
           <h3 className="-mb-3 py-5 text-lg font-medium sm:text-xl">
-            Welcome to my portfolio site!
+            Welcome to my site!
           </h3>
           <p className="mb-10 text-sm font-medium text-neutral-700 dark:text-slate-200  sm:text-base">
             Here you can see my journey while programming, information about me,
