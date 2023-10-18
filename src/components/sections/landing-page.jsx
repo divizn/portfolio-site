@@ -50,7 +50,7 @@ const Landing = ({ getDark }) => {
           <a
             alt="CV"
             aria-label="CV"
-            href="https://drive.google.com/file/d/1C3KaFUDf4j-14dhSrZ8x-yDbq_JW0gVz/view?usp=sharing"
+            href="https://drive.google.com/file/d/1q0b3ZG6o1T0R61AJ-wGaUjtVacrdb6_Y/view?usp=sharing"
             rel="noreferrer noopener"
             target="_blank"
             className="m-10 flex select-none items-center font-medium text-neutral-700 dark:text-slate-200 sm:hidden"

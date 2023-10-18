@@ -14,7 +14,7 @@ const Cv = () => {
         />
         <div className="flex">
           <a
-            href="https://drive.google.com/file/d/1C3KaFUDf4j-14dhSrZ8x-yDbq_JW0gVz/view?usp=sharing"
+            href="https://drive.google.com/file/d/1q0b3ZG6o1T0R61AJ-wGaUjtVacrdb6_Y/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >
