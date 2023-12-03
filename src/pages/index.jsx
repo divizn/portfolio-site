@@ -56,7 +56,6 @@ export default function Home() {
       </Head>
       <main className={`${darkMode ? "dark" : ""}`}>
         <Landing getDark={getDark} />
-        <AboutMe />
         <Portfolio />
         <Cv />
       </main>
