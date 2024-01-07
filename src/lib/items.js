@@ -9,6 +9,12 @@ export const portfolioItems = [
       "https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=divizn&repo=discord-spotify-bot&hide_border=true&theme=dark&bg_color=0d1117",
   },
   {
+    name: "TCP Server + Clients in Go and Rust",
+    repo: "https://github.com/divizn/tcp-message-passing/tree/master",
+    picture:
+    "https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=divizn&repo=tcp-message-passing&hide_border=true&theme=dark&bg_color=0d1117",
+  },
+  {
     name: "React Weather App",
     repo: "https://github.com/divizn/react-weather-app",
     picture:
