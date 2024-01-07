@@ -15,12 +15,6 @@ export const portfolioItems = [
       "https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=divizn&repo=react-weather-app&hide_border=true&theme=dark&bg_color=0d1117",
   },
   {
-    name: "Legacy Portfolio",
-    repo: "https://github.com/divizn/legacy-portfolio-site",
-    picture:
-      "https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=divizn&repo=legacy-portfolio-site&hide_border=true&theme=dark&bg_color=0d1117",
-  },
-  {
     name: "Portfolio Site",
     repo: "https://github.com/divizn/portfolio-site",
     picture:
