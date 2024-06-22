@@ -32,6 +32,12 @@ export const portfolioItems = [
     picture:
       "https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=divizn&repo=clone-sites&hide_border=true&theme=dark&bg_color=0d1117",
   },
+  {
+    name: "Word similarity NLP",
+    repo: "https://github.com/divizn/word-similarity",
+    picture:
+    "https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=divizn&repo=word-similarity&hide_border=true&theme=dark&bg_color=0d1117",
+  },
 ];
 
 export const timelineItems = [
