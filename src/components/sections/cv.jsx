@@ -10,7 +10,7 @@ const Cv = () => {
         <Title>Resume/CV</Title>
         <embed
           className="mt-24 mb-8 hidden min-h-screen w-1/2 sm:inline-block"
-          src="CV Hassan Javed.pdf"
+          src="CV_Hassan_Javed.pdf"
         />
         <div className="flex">
           <a
