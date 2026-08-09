@@ -1,41 +1,73 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import Particles from "@/components/Particles";
+import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
 import { Separator } from "@/components/ui/separator";
+import { experience } from "@/constants/experience";
+
+const allProjects = await getCollection("projects", ({ data }) => data.published);
+const featured = allProjects.filter((project) => project.data.featured);
 ---
 
 <BaseLayout title="hassanj.dev" description="Portfolio of Hassan Javed.">
-  <main class="mx-auto max-w-3xl animate-fade-in px-6 py-24">
-    <h1 class="font-display text-4xl text-zinc-100">M2: design system check</h1>
-    <p class="mt-2 text-zinc-400">Tailwind v4 theme, fonts, and Solid ui/ primitives.</p>
+  <div class="relative">
+    <Particles
+      client:load
+      class="pointer-events-none absolute inset-0 -z-10 animate-fade-in"
+      quantity={80}
+    />
 
-    <Separator class="my-8" />
+    <main class="mx-auto max-w-4xl px-6 py-24">
+      <section class="animate-fade-in">
+        <h1 class="font-display animate-title text-4xl text-zinc-100 sm:text-5xl">
+          Hassan Javed
+        </h1>
+        <p class="mt-4 max-w-xl text-zinc-400">
+          PLACEHOLDER bio — replaced with current, accurate copy during the content pass.
+        </p>
+        <nav class="mt-6 flex gap-4 text-sm text-zinc-500">
+          <a href="/projects" class="duration-200 hover:text-zinc-200">Projects</a>
+          <a href="/contact" class="duration-200 hover:text-zinc-200">Contact</a>
+        </nav>
+      </section>
 
-    <div class="grid gap-4 sm:grid-cols-2">
-      <Card>
-        <CardHeader>
-          <CardTitle>Card primitive</CardTitle>
-          <CardDescription>cva + cn() + Solid</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Badge>badge</Badge>
-          <Badge variant="outline" class="ml-2">
-            outline
-          </Badge>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Buttons</CardTitle>
-        </CardHeader>
-        <CardContent class="flex gap-2">
-          <Button>Default</Button>
-          <Button variant="outline">Outline</Button>
-          <Button variant="ghost">Ghost</Button>
-        </CardContent>
-      </Card>
-    </div>
-  </main>
+      <Separator class="my-12" />
+
+      <section>
+        <h2 class="font-display text-xl text-zinc-100">Experience</h2>
+        <BentoGrid class="mt-6">
+          {
+            experience.map((item) => (
+              <BentoGridItem title={item.title} subtitle={`${item.subtitle ?? ""} · ${item.dateRange}`}>
+                {item.description}
+              </BentoGridItem>
+            ))
+          }
+        </BentoGrid>
+      </section>
+
+      <Separator class="my-12" />
+
+      <section>
+        <div class="flex items-baseline justify-between">
+          <h2 class="font-display text-xl text-zinc-100">Projects</h2>
+          <a href="/projects" class="text-sm text-zinc-500 duration-200 hover:text-zinc-200">
+            View all &rarr;
+          </a>
+        </div>
+        <BentoGrid class="mt-6">
+          {
+            featured.map((project) => (
+              <a href={`/projects/${project.id}`}>
+                <BentoGridItem title={project.data.title} span={2}>
+                  {project.data.description}
+                </BentoGridItem>
+              </a>
+            ))
+          }
+        </BentoGrid>
+      </section>
+    </main>
+  </div>
 </BaseLayout>
