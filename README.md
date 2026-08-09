@@ -1,6 +1,6 @@
 <h1 align=center>My portfolio site</h1>
 
-Here is my new [portfolio site](https://hassanj.dev), a from-scratch rewrite of the [old Next.js one.](https://github.com/divizn/legacy-portfolio-site)
+Here is my [portfolio site](https://hassanj.dev).
 
 ## Stack
 
