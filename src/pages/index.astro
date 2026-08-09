@@ -10,7 +10,9 @@ import { experience } from "@/constants/experience";
 import { education } from "@/constants/education";
 
 const allProjects = await getCollection("projects", ({ data }) => data.published);
-const featured = allProjects.filter((project) => project.data.featured);
+const featured = allProjects
+  .filter((project) => project.data.featured)
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
 ---
 
 <BaseLayout title="Hassan" description="Portfolio of Hassan Javed.">
