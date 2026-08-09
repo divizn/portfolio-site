@@ -1,8 +1,10 @@
 ---
 import { getCollection } from "astro:content";
+import { FiArrowRight } from "solid-icons/fi";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Particles from "@/components/Particles";
 import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
+import { Timeline } from "@/components/Timeline";
 import { Separator } from "@/components/ui/separator";
 import { experience } from "@/constants/experience";
 import { education } from "@/constants/education";
@@ -21,7 +23,7 @@ const featured = allProjects.filter((project) => project.data.featured);
 
     <main class="mx-auto max-w-4xl px-6 py-24">
       <section class="animate-fade-in">
-        <h1 class="font-display animate-title text-4xl text-zinc-100 sm:text-5xl">
+        <h1 class="font-display animate-title-glow text-4xl text-zinc-100 sm:text-5xl">
           Hassan Javed
         </h1>
         <p class="mt-4 max-w-xl text-zinc-400">
@@ -35,33 +37,14 @@ const featured = allProjects.filter((project) => project.data.featured);
 
       <section>
         <h2 class="font-display text-xl text-zinc-100">Experience</h2>
-        <BentoGrid class="mt-6">
-          {
-            experience.map((item) => (
-              <BentoGridItem title={item.title} subtitle={`${item.subtitle ?? ""} · ${item.dateRange}`}>
-                {item.description}
-              </BentoGridItem>
-            ))
-          }
-        </BentoGrid>
+        <Timeline items={experience} class="mt-6" client:visible />
       </section>
 
       <Separator class="my-12" />
 
       <section>
         <h2 class="font-display text-xl text-zinc-100">Education</h2>
-        <BentoGrid class="mt-6">
-          {
-            education.map((item) => (
-              <BentoGridItem
-                title={item.title}
-                subtitle={`${item.subtitle ?? ""} · ${item.dateRange}`}
-              >
-                {item.description}
-              </BentoGridItem>
-            ))
-          }
-        </BentoGrid>
+        <Timeline items={education} class="mt-6" client:visible />
       </section>
 
       <Separator class="my-12" />
@@ -69,8 +52,12 @@ const featured = allProjects.filter((project) => project.data.featured);
       <section>
         <div class="flex items-baseline justify-between">
           <h2 class="font-display text-xl text-zinc-100">Projects</h2>
-          <a href="/projects" class="text-sm text-zinc-400 duration-200 hover:text-zinc-200">
-            View all &rarr;
+          <a
+            href="/projects"
+            class="flex items-center gap-1.5 text-sm text-zinc-400 duration-200 hover:text-zinc-200"
+          >
+            View all
+            <FiArrowRight class="h-4 w-4" />
           </a>
         </div>
         <BentoGrid class="mt-6">

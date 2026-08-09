@@ -1,4 +1,5 @@
 ---
+import { FiArrowLeft } from "solid-icons/fi";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
@@ -6,8 +7,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
   <main class="mx-auto flex max-w-4xl flex-col items-center px-6 py-32 text-center">
     <h1 class="font-display text-4xl text-zinc-100">404</h1>
     <p class="mt-4 text-zinc-400">This page doesn't exist.</p>
-    <a href="/" class="mt-6 text-sm text-zinc-300 duration-200 hover:text-zinc-100">
-      &larr; Back home
+    <a
+      href="/"
+      class="mt-6 flex items-center gap-1.5 text-sm text-zinc-300 duration-200 hover:text-zinc-100"
+    >
+      <FiArrowLeft class="h-4 w-4" />
+      Back home
     </a>
   </main>
 </BaseLayout>

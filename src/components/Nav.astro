@@ -1,20 +1,30 @@
 ---
+import { FiFolder, FiMail, FiTerminal } from "solid-icons/fi";
+
 const links = [
-  { href: "/projects", label: "Projects" },
-  { href: "/contact", label: "Contact" },
+  { href: "/projects", label: "Projects", icon: FiFolder },
+  { href: "/contact", label: "Contact", icon: FiMail },
 ];
 ---
 
 <header class="border-b border-zinc-900">
   <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-    <a href="/" class="text-sm text-zinc-300 duration-200 hover:text-zinc-100">
-      Hassan Javed
+    <a
+      href="/"
+      aria-label="Hassan Javed — home"
+      class="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-100 duration-200 hover:border-zinc-500"
+    >
+      <FiTerminal class="h-4 w-4" />
     </a>
     <ul class="flex items-center gap-4 text-sm text-zinc-400">
       {
         links.map((link) => (
           <li>
-            <a href={link.href} class="duration-200 hover:text-zinc-200">
+            <a
+              href={link.href}
+              class="flex items-center gap-1.5 duration-200 hover:text-zinc-200"
+            >
+              <link.icon class="h-4 w-4" />
               {link.label}
             </a>
           </li>
