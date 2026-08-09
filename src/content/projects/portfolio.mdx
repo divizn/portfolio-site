@@ -1,0 +1,26 @@
+---
+title: "Portfolio Site"
+description: "This site — a from-scratch rewrite from Next.js/Vercel to Astro 7 + SolidJS on Cloudflare Workers."
+date: 2026-08-09
+published: true
+featured: false
+url: "https://portfolio.phons.dev"
+repository: "divizn/portfolio-site"
+tags: ["astro", "solidjs", "tailwindcss", "cloudflare-workers"]
+---
+
+A ground-up rewrite of the previous Next.js Pages Router portfolio — no shared code with
+that version. Static output via Astro 7, with SolidJS islands for anything interactive
+(a mouse-reactive particles background, the dark/light theme toggle, expandable
+lists), styled with Tailwind v4's CSS-first config. Deployed to Cloudflare Workers
+Static Assets rather than Vercel or classic Cloudflare Pages.
+
+## Highlights
+
+- Project write-ups are an Astro content-collection (MDX + Zod schema), rendered with
+  Shiki syntax highlighting and auto-linked headings.
+- Featured projects on the home page are data-driven off each write-up's frontmatter,
+  not a hardcoded list.
+- Self-hosted fonts (Inter Variable + a local Cal Sans), a full light/dark semantic
+  color-token system, and a canvas particles effect built without any external
+  animation library.
