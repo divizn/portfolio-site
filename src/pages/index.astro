@@ -1,14 +1,41 @@
 ---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>hassanj.dev</title>
-  </head>
-  <body>
-    <h1>M0: scaffold works</h1>
-    <p>Astro + Solid + Tailwind 4, deployed via Cloudflare Workers Static Assets.</p>
-  </body>
-</html>
+<BaseLayout title="hassanj.dev" description="Portfolio of Hassan Javed.">
+  <main class="mx-auto max-w-3xl animate-fade-in px-6 py-24">
+    <h1 class="font-display text-4xl text-zinc-100">M2: design system check</h1>
+    <p class="mt-2 text-zinc-400">Tailwind v4 theme, fonts, and Solid ui/ primitives.</p>
+
+    <Separator class="my-8" />
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <Card>
+        <CardHeader>
+          <CardTitle>Card primitive</CardTitle>
+          <CardDescription>cva + cn() + Solid</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Badge>badge</Badge>
+          <Badge variant="outline" class="ml-2">
+            outline
+          </Badge>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Buttons</CardTitle>
+        </CardHeader>
+        <CardContent class="flex gap-2">
+          <Button>Default</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="ghost">Ghost</Button>
+        </CardContent>
+      </Card>
+    </div>
+  </main>
+</BaseLayout>
