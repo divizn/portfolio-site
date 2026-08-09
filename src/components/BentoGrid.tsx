@@ -1,4 +1,9 @@
-import { splitProps, type ComponentProps, type JSX } from "solid-js";
+import {
+  children as resolveChildren,
+  splitProps,
+  type ComponentProps,
+  type JSX,
+} from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { cn } from "@/lib/utils";
 
@@ -6,7 +11,10 @@ export function BentoGrid(props: ComponentProps<"div">) {
   const [local, rest] = splitProps(props, ["class"]);
   return (
     <div
-      class={cn("grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3", local.class)}
+      class={cn(
+        "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3",
+        local.class,
+      )}
       {...rest}
     />
   );
@@ -30,6 +38,11 @@ export function BentoGridItem(props: BentoGridItemProps) {
     "headingLevel",
     "children",
   ]);
+  // Resolved once via Solid's `children` helper — accessing `local.children`
+  // directly twice (once for the truthy check, once to render) would
+  // re-invoke any component inside it (e.g. a <Show>) a second time,
+  // producing a different DOM tree than SSR and breaking hydration.
+  const resolvedChildren = resolveChildren(() => local.children);
   return (
     <div
       class={cn(
@@ -45,8 +58,14 @@ export function BentoGridItem(props: BentoGridItemProps) {
       >
         {local.title}
       </Dynamic>
-      {local.subtitle && <p class="mt-1 text-sm text-muted-foreground">{local.subtitle}</p>}
-      {local.children && <div class="mt-3 text-sm text-muted-foreground">{local.children}</div>}
+      {local.subtitle && (
+        <p class="mt-1 text-sm text-muted-foreground">{local.subtitle}</p>
+      )}
+      {resolvedChildren() && (
+        <div class="mt-3 text-sm text-muted-foreground">
+          {resolvedChildren()}
+        </div>
+      )}
     </div>
   );
 }
