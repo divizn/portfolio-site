@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { socials } from "@/constants/social";
+---
+
+<BaseLayout title="Contact | hassanj.dev" description="Get in touch.">
+  <main class="mx-auto max-w-4xl animate-fade-in px-6 py-24">
+    <h1 class="font-display text-3xl text-zinc-100">Contact</h1>
+    <p class="mt-4 max-w-xl text-zinc-400">Reach out through any of the channels below.</p>
+
+    <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {
+        socials.map((social) => (
+          <a href={social.href} target="_blank" rel="noopener noreferrer">
+            <Card class="transition-colors hover:border-zinc-700">
+              <CardHeader>
+                <CardTitle>{social.label}</CardTitle>
+                <CardDescription>{social.handle}</CardDescription>
+              </CardHeader>
+            </Card>
+          </a>
+        ))
+      }
+    </div>
+  </main>
+</BaseLayout>
