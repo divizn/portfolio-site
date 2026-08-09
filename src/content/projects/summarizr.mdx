@@ -1,0 +1,23 @@
+---
+title: "Summarizr"
+description: "AI video summarisation service that turns YouTube videos or transcripts into concise summaries using a fine-tuned LLM."
+date: 2026-08-08
+published: true
+featured: true
+tags: ["python", "pytorch", "huggingface", "go", "sveltekit", "aws"]
+---
+
+An AI video summarisation service that ingests YouTube videos or text transcripts and
+generates concise summaries using a fine-tuned HuggingFace LLM built with PyTorch.
+
+## Architecture
+
+- **Model**: a fine-tuned HuggingFace LLM, trained and deployed with AWS SageMaker.
+- **Storage**: S3 for scalable storage of datasets and models.
+- **Caching**: Redis for summary caching, with MySQL under consideration for user/session
+  persistence.
+- **Backend**: a secure Go service using Gorilla Mux and Goth for authentication.
+- **Frontend**: a SvelteKit web UI.
+
+Still under active development — repositories are currently private while the project
+matures.

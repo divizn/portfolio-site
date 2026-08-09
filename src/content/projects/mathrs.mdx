@@ -1,0 +1,19 @@
+---
+title: "Mathrs"
+description: "A Python math module built in Rust with pyo3 bindings, for fast matrix ops and basic neural-net primitives."
+date: 2024-10-20
+published: true
+featured: false
+repository: "divizn/mathrs"
+tags: ["rust", "python", "pyo3"]
+---
+
+A Python math module built in Rust for fast matrix operations, with full unit test
+coverage and CI set up via GNU Make and `maturin`.
+
+## Highlights
+
+- Implements common activation functions (ReLU, Sigmoid, Softmax).
+- Used to experiment with handwritten digit classification on MNIST.
+- Bindings via [pyo3](https://pyo3.rs/), packaged with `maturin` for distribution as a
+  regular Python module.

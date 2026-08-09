@@ -1,0 +1,90 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Particles from "@/components/Particles";
+import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
+import { Separator } from "@/components/ui/separator";
+import { experience } from "@/constants/experience";
+import { education } from "@/constants/education";
+
+const allProjects = await getCollection("projects", ({ data }) => data.published);
+const featured = allProjects.filter((project) => project.data.featured);
+---
+
+<BaseLayout title="Hassan" description="Portfolio of Hassan Javed.">
+  <div class="relative">
+    <Particles
+      client:load
+      class="pointer-events-none absolute inset-0 -z-10 animate-fade-in"
+      quantity={80}
+    />
+
+    <main class="mx-auto max-w-4xl px-6 py-24">
+      <section class="animate-fade-in">
+        <h1 class="font-display animate-title text-4xl text-zinc-100 sm:text-5xl">
+          Hassan Javed
+        </h1>
+        <p class="mt-4 max-w-xl text-zinc-400">
+          Scientific Computing Graduate at STFC UKRI, working on simulation software and
+          backend systems. BSc Computer Science (First Class Honours), Brunel University
+          London.
+        </p>
+      </section>
+
+      <Separator class="my-12" />
+
+      <section>
+        <h2 class="font-display text-xl text-zinc-100">Experience</h2>
+        <BentoGrid class="mt-6">
+          {
+            experience.map((item) => (
+              <BentoGridItem title={item.title} subtitle={`${item.subtitle ?? ""} · ${item.dateRange}`}>
+                {item.description}
+              </BentoGridItem>
+            ))
+          }
+        </BentoGrid>
+      </section>
+
+      <Separator class="my-12" />
+
+      <section>
+        <h2 class="font-display text-xl text-zinc-100">Education</h2>
+        <BentoGrid class="mt-6">
+          {
+            education.map((item) => (
+              <BentoGridItem
+                title={item.title}
+                subtitle={`${item.subtitle ?? ""} · ${item.dateRange}`}
+              >
+                {item.description}
+              </BentoGridItem>
+            ))
+          }
+        </BentoGrid>
+      </section>
+
+      <Separator class="my-12" />
+
+      <section>
+        <div class="flex items-baseline justify-between">
+          <h2 class="font-display text-xl text-zinc-100">Projects</h2>
+          <a href="/projects" class="text-sm text-zinc-400 duration-200 hover:text-zinc-200">
+            View all &rarr;
+          </a>
+        </div>
+        <BentoGrid class="mt-6">
+          {
+            featured.map((project) => (
+              <a href={`/projects/${project.id}`}>
+                <BentoGridItem title={project.data.title} span={2}>
+                  {project.data.description}
+                </BentoGridItem>
+              </a>
+            ))
+          }
+        </BentoGrid>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
