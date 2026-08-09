@@ -1,0 +1,44 @@
+---
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects", ({ data }) => data.published);
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, description, date, url, repository, tags } = project.data;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <a href="/projects">&larr; Back to projects</a>
+    <header>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      {date && <time datetime={new Date(date).toISOString()}>{new Date(date).toLocaleDateString()}</time>}
+      <p>
+        {repository && <a href={`https://github.com/${repository}`} target="_blank">GitHub</a>}
+        {url && <a href={url} target="_blank">Website</a>}
+      </p>
+      {tags && tags.length > 0 && (
+        <ul>
+          {tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      )}
+    </header>
+    <article>
+      <Content />
+    </article>
+  </body>
+</html>
