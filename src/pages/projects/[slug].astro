@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import { FiArrowLeft, FiExternalLink, FiGithub } from "solid-icons/fi";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Badge } from "@/components/ui/badge";
 
@@ -20,8 +21,12 @@ const { title, description, date, url, repository, tags } = project.data;
   <main>
     <div class="border-b border-zinc-800 bg-gradient-to-tl from-black via-zinc-900 to-black">
       <div class="mx-auto max-w-3xl px-6 py-6">
-        <a href="/projects" class="text-sm text-zinc-400 duration-200 hover:text-zinc-200">
-          &larr; Back to projects
+        <a
+          href="/projects"
+          class="flex items-center gap-1.5 text-sm text-zinc-400 duration-200 hover:text-zinc-200"
+        >
+          <FiArrowLeft class="h-4 w-4" />
+          Back to projects
         </a>
       </div>
       <div class="mx-auto max-w-3xl px-6 pb-16 text-center">
@@ -42,9 +47,10 @@ const { title, description, date, url, repository, tags } = project.data;
                 href={`https://github.com/${repository}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-zinc-300 duration-200 hover:text-white"
+                class="flex items-center gap-1.5 text-zinc-300 duration-200 hover:text-white"
               >
-                GitHub &rarr;
+                <FiGithub class="h-4 w-4" />
+                GitHub
               </a>
             )
           }
@@ -54,9 +60,10 @@ const { title, description, date, url, repository, tags } = project.data;
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-zinc-300 duration-200 hover:text-white"
+                class="flex items-center gap-1.5 text-zinc-300 duration-200 hover:text-white"
               >
-                Website &rarr;
+                <FiExternalLink class="h-4 w-4" />
+                Website
               </a>
             )
           }

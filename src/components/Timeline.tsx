@@ -1,5 +1,5 @@
 import { For, Show, createMemo, createSignal } from "solid-js";
-import { FiChevronDown } from "solid-icons/fi";
+import { FiChevronDown, FiChevronUp } from "solid-icons/fi";
 import { cn } from "@/lib/utils";
 
 export type TimelineEntry = {
@@ -47,15 +47,17 @@ export function Timeline(props: TimelineProps) {
           )}
         </For>
       </ol>
-      <Show when={hasMore() && !expanded()}>
+      <Show when={hasMore()}>
         <button
           type="button"
           aria-expanded={expanded()}
-          onClick={() => setExpanded(true)}
-          class="mt-1 flex items-center gap-1.5 text-sm text-zinc-400 duration-200 hover:text-zinc-200"
+          onClick={() => setExpanded((value) => !value)}
+          class="mt-6 flex items-center gap-1.5 rounded-full border border-zinc-700 bg-zinc-900/50 px-3 py-1.5 text-sm text-zinc-300 duration-200 hover:border-zinc-600 hover:bg-zinc-800 hover:text-zinc-100"
         >
-          <FiChevronDown class="h-4 w-4" />
-          <span>+{props.items.length - initialCount()} entries</span>
+          {expanded() ? <FiChevronUp class="h-4 w-4" /> : <FiChevronDown class="h-4 w-4" />}
+          <span>
+            {expanded() ? "Show less" : `+${props.items.length - initialCount()} entries`}
+          </span>
         </button>
       </Show>
     </div>
