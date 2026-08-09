@@ -25,7 +25,7 @@ yarn-error.log*
 # cloudflare
 .wrangler/
 
-# claude code local tooling state
+# local editor/tooling state
 .claude/
 
 # typescript
