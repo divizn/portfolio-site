@@ -20,6 +20,11 @@
   --animate-glow: glow 3s ease-in-out infinite;
   --animate-title: title 1s ease-out both;
   --animate-text-glow: text-glow 3s ease-in-out infinite;
+  /* animation is a shorthand: two separate animate-* utility classes on one
+     element don't combine, the later stylesheet rule just overrides the
+     earlier one's value entirely. This is the single-declaration combo for
+     the hero name (title-in + looping glow) so both actually run. */
+  --animate-title-glow: title 1s ease-out both, text-glow 3s ease-in-out infinite;
 
   @keyframes fade-in {
     from {
