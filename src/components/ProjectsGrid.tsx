@@ -1,5 +1,4 @@
-import { For, Show, createMemo, createSignal } from "solid-js";
-import { FiChevronDown, FiChevronUp } from "solid-icons/fi";
+import { For, Show } from "solid-js";
 import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
 import { Badge } from "@/components/ui/badge";
 
@@ -14,31 +13,15 @@ export type ProjectCard = {
 type ProjectsGridProps = {
   items: ProjectCard[];
   class?: string;
-  /** How many entries to show before collapsing the rest behind the expand control. Defaults to 3. */
-  initialCount?: number;
 };
 
 export function ProjectsGrid(props: ProjectsGridProps) {
-  const initialCount = () => props.initialCount ?? 3;
-  const hasMore = createMemo(() => props.items.length > initialCount());
-  const [expanded, setExpanded] = createSignal(false);
-  const visibleItems = createMemo(() =>
-    expanded() || !hasMore()
-      ? props.items
-      : props.items.slice(0, initialCount()),
-  );
-
   return (
     <div class={props.class}>
       <BentoGrid>
-        <For each={visibleItems()}>
-          {(project, index) => (
-            <a
-              href={`/projects/${project.id}`}
-              class={
-                index() >= initialCount() ? "block animate-fade-in" : "block"
-              }
-            >
+        <For each={props.items}>
+          {(project) => (
+            <a href={`/projects/${project.id}`} class="block">
               <BentoGridItem
                 title={project.title}
                 span={project.featured ? 2 : 1}
@@ -57,25 +40,6 @@ export function ProjectsGrid(props: ProjectsGridProps) {
           )}
         </For>
       </BentoGrid>
-      <Show when={hasMore()}>
-        <button
-          type="button"
-          aria-expanded={expanded()}
-          onClick={() => setExpanded((value) => !value)}
-          class="mt-6 flex items-center gap-1.5 rounded-full border border-border-strong bg-card px-3 py-1.5 text-sm text-muted-foreground duration-200 hover:border-foreground/30 hover:bg-muted hover:text-foreground"
-        >
-          {expanded() ? (
-            <FiChevronUp class="h-4 w-4" />
-          ) : (
-            <FiChevronDown class="h-4 w-4" />
-          )}
-          <span>
-            {expanded()
-              ? "Show less"
-              : `+${props.items.length - initialCount()} more`}
-          </span>
-        </button>
-      </Show>
     </div>
   );
 }

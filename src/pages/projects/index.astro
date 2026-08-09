@@ -18,6 +18,6 @@ const projects = (await getCollection("projects", ({ data }) => data.published))
   <main class="mx-auto max-w-4xl animate-fade-in px-6 py-24">
     <h1 class="font-display text-3xl text-foreground">Projects</h1>
 
-    <ProjectsGrid items={projects} class="mt-10" client:visible />
+    <ProjectsGrid items={projects} class="mt-10" />
   </main>
 </BaseLayout>
