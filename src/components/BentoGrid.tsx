@@ -33,7 +33,7 @@ export function BentoGridItem(props: BentoGridItemProps) {
   return (
     <div
       class={cn(
-        "group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 transition-colors hover:border-zinc-700",
+        "group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-colors hover:border-border-strong",
         local.span === 2 && "sm:col-span-2",
         local.class,
       )}
@@ -41,12 +41,12 @@ export function BentoGridItem(props: BentoGridItemProps) {
     >
       <Dynamic
         component={local.headingLevel ?? "h3"}
-        class="font-display text-base font-semibold text-zinc-100"
+        class="font-display text-base font-semibold text-foreground"
       >
         {local.title}
       </Dynamic>
-      {local.subtitle && <p class="mt-1 text-sm text-zinc-400">{local.subtitle}</p>}
-      {local.children && <div class="mt-3 text-sm text-zinc-400">{local.children}</div>}
+      {local.subtitle && <p class="mt-1 text-sm text-muted-foreground">{local.subtitle}</p>}
+      {local.children && <div class="mt-3 text-sm text-muted-foreground">{local.children}</div>}
     </div>
   );
 }

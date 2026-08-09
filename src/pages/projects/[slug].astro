@@ -19,24 +19,24 @@ const { title, description, date, url, repository, tags } = project.data;
 
 <BaseLayout title={`${title} | Hassan`} description={description}>
   <main>
-    <div class="border-b border-zinc-800 bg-gradient-to-tl from-black via-zinc-900 to-black">
+    <div class="border-b border-border bg-gradient-to-tl from-background via-muted to-background">
       <div class="mx-auto max-w-3xl px-6 py-6">
         <a
           href="/projects"
-          class="flex items-center gap-1.5 text-sm text-zinc-400 duration-200 hover:text-zinc-200"
+          class="flex items-center gap-1.5 text-sm text-muted-foreground duration-200 hover:text-foreground"
         >
           <FiArrowLeft class="h-4 w-4" />
           Back to projects
         </a>
       </div>
       <div class="mx-auto max-w-3xl px-6 pb-16 text-center">
-        <h1 class="font-display text-3xl text-zinc-100 sm:text-5xl">{title}</h1>
-        <p class="mt-4 text-zinc-400">{description}</p>
+        <h1 class="font-display text-3xl text-foreground sm:text-5xl">{title}</h1>
+        <p class="mt-4 text-muted-foreground">{description}</p>
 
         <div class="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm">
           {
             date && (
-              <time datetime={new Date(date).toISOString()} class="text-zinc-400">
+              <time datetime={new Date(date).toISOString()} class="text-muted-foreground">
                 {new Date(date).toLocaleDateString(undefined, { dateStyle: "medium" })}
               </time>
             )
@@ -47,7 +47,7 @@ const { title, description, date, url, repository, tags } = project.data;
                 href={`https://github.com/${repository}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-1.5 text-zinc-300 duration-200 hover:text-white"
+                class="flex items-center gap-1.5 text-muted-foreground duration-200 hover:text-foreground"
               >
                 <FiGithub class="h-4 w-4" />
                 GitHub
@@ -60,7 +60,7 @@ const { title, description, date, url, repository, tags } = project.data;
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-1.5 text-zinc-300 duration-200 hover:text-white"
+                class="flex items-center gap-1.5 text-muted-foreground duration-200 hover:text-foreground"
               >
                 <FiExternalLink class="h-4 w-4" />
                 Website
@@ -81,7 +81,7 @@ const { title, description, date, url, repository, tags } = project.data;
       </div>
     </div>
 
-    <article class="prose prose-invert prose-zinc mx-auto max-w-3xl px-6 py-16">
+    <article class="prose mx-auto max-w-3xl px-6 py-16">
       <Content />
     </article>
   </main>
