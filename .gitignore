@@ -25,5 +25,8 @@ yarn-error.log*
 # cloudflare
 .wrangler/
 
+# claude code local tooling state
+.claude/
+
 # typescript
 *.tsbuildinfo

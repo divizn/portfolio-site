@@ -1,5 +1,5 @@
 ---
-import { FiFolder, FiMail } from "solid-icons/fi";
+import { FiFolder, FiMail, FiTerminal } from "solid-icons/fi";
 
 const links = [
   { href: "/projects", label: "Projects", icon: FiFolder },
@@ -12,9 +12,9 @@ const links = [
     <a
       href="/"
       aria-label="Hassan Javed — home"
-      class="font-display flex h-8 w-8 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-sm text-zinc-100 duration-200 hover:border-zinc-500"
+      class="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-100 duration-200 hover:border-zinc-500"
     >
-      HJ
+      <FiTerminal class="h-4 w-4" />
     </a>
     <ul class="flex items-center gap-4 text-sm text-zinc-400">
       {
