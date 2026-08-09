@@ -11,9 +11,4 @@ export const socials: Social[] = [
     href: "https://linkedin.com/in/hassanjaved186",
     handle: "hassanjaved186",
   },
-  {
-    label: "Email",
-    href: "mailto:hassanjaved186@gmail.com",
-    handle: "hassanjaved186@gmail.com",
-  },
 ];
