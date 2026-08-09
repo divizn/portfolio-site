@@ -1,23 +1,44 @@
 ---
 title: "Summarizr"
-description: "AI video summarisation service that turns YouTube videos or transcripts into concise summaries using a fine-tuned LLM."
+description: "Turns a YouTube video's transcript into a concise summary, via a fine-tuned LED model behind a thin Go API."
 date: 2026-08-08
 published: true
 featured: true
-tags: ["python", "pytorch", "huggingface", "go", "sveltekit", "aws"]
+tags: ["go", "python", "fastapi", "pytorch", "terraform", "docker"]
 ---
 
-An AI video summarisation service that ingests YouTube videos or text transcripts and
-generates concise summaries using a fine-tuned HuggingFace LLM built with PyTorch.
+A pipeline that takes a YouTube video, pulls its transcript, and returns a concise
+summary — a thin Go API in front of a fine-tuned summarization model.
 
 ## Architecture
 
-- **Model**: a fine-tuned HuggingFace LLM, trained and deployed with AWS SageMaker.
-- **Storage**: S3 for scalable storage of datasets and models.
-- **Caching**: Redis for summary caching, with MySQL under consideration for user/session
-  persistence.
-- **Backend**: a secure Go service using Gorilla Mux and Goth for authentication.
-- **Frontend**: a SvelteKit web UI.
+A request crosses three hops: a Go API (`gorilla/mux`) validates the request and calls
+a Python FastAPI model service, which fetches the transcript and runs generation.
 
-Still under active development — repositories are currently private while the project
-matures.
+- Transcript fetch prefers a manually-created caption track over an auto-generated one
+  — auto-captions misspell names in a way that bleeds straight into the summary.
+- The model is a fine-tuned LED (Longformer Encoder-Decoder). Since LED only attends
+  locally by default, the first token gets a global attention mask so it summarizes
+  the input instead of just extending it. Input is capped at 8192 tokens (the
+  fine-tune's training window); output length scales with how much of that window is
+  used.
+- Split across independently versioned repos — a superproject pinning the model, API,
+  and web UI via git submodules — rather than one monorepo.
+
+## Training data
+
+Fine-tuned first on [QMSum](https://github.com/Yale-LILY/QMSum), a public
+meeting-transcript dataset, to validate the training pipeline end to end before
+spending time scraping. A second phase — retraining on real scraped YouTube
+transcripts across several channels and genres — is currently blocked on a YouTube
+IP rate-limit ban clearing.
+
+## Status
+
+The model and API work end to end locally. A GPU deployment (AWS EC2 via Terraform)
+is designed but not yet applied — CPU inference currently takes up to ~15 minutes per
+video, which is the whole reason that deployment exists. The web UI hasn't been
+started yet, and Redis is wired into the Docker Compose setup but not yet used by the
+API.
+
+Repositories are currently private while the project matures.
