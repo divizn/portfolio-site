@@ -8,8 +8,6 @@
     "not_found_handling": "404-page"
   },
   "routes": [
-    { "pattern": "phons.dev", "custom_domain": true },
-    { "pattern": "www.phons.dev", "custom_domain": true },
     { "pattern": "portfolio.phons.dev", "custom_domain": true }
   ]
 }
