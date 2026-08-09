@@ -1,0 +1,24 @@
+---
+title: "Calculator API"
+description: "A Go backend calculator API with JWT auth, role-based access control, and Docker-orchestrated Postgres + Redis."
+date: 2025-01-07
+published: true
+featured: true
+repository: "divizn/go-calculator-api"
+tags: ["go", "echo", "postgresql", "redis", "docker"]
+---
+
+A backend calculator API built in Go with [Echo](https://echo.labstack.com/), secured with
+full JWT authentication and role-based access control.
+
+## Highlights
+
+- Typed request validation via struct tags to ensure data integrity and reject malformed
+  input.
+- Database migrations with [Goose](https://github.com/pressly/goose) for consistent schema
+  versioning across deployments.
+- Postgres + Redis orchestrated with Docker Compose, with Redis caching cutting response
+  times by roughly 200%.
+- Interactive API docs generated with Swaggo, following the OpenAPI specification.
+- Integration tests covering the core endpoints, built around a clean architecture layout
+  for maintainability.

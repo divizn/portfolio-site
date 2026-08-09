@@ -5,6 +5,7 @@ import Particles from "@/components/Particles";
 import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
 import { Separator } from "@/components/ui/separator";
 import { experience } from "@/constants/experience";
+import { education } from "@/constants/education";
 
 const allProjects = await getCollection("projects", ({ data }) => data.published);
 const featured = allProjects.filter((project) => project.data.featured);
@@ -24,7 +25,9 @@ const featured = allProjects.filter((project) => project.data.featured);
           Hassan Javed
         </h1>
         <p class="mt-4 max-w-xl text-zinc-400">
-          PLACEHOLDER bio — replaced with current, accurate copy during the content pass.
+          Scientific Computing Graduate at STFC UKRI, working on simulation software and
+          backend systems. BSc Computer Science (First Class Honours), Brunel University
+          London.
         </p>
       </section>
 
@@ -36,6 +39,24 @@ const featured = allProjects.filter((project) => project.data.featured);
           {
             experience.map((item) => (
               <BentoGridItem title={item.title} subtitle={`${item.subtitle ?? ""} · ${item.dateRange}`}>
+                {item.description}
+              </BentoGridItem>
+            ))
+          }
+        </BentoGrid>
+      </section>
+
+      <Separator class="my-12" />
+
+      <section>
+        <h2 class="font-display text-xl text-zinc-100">Education</h2>
+        <BentoGrid class="mt-6">
+          {
+            education.map((item) => (
+              <BentoGridItem
+                title={item.title}
+                subtitle={`${item.subtitle ?? ""} · ${item.dateRange}`}
+              >
                 {item.description}
               </BentoGridItem>
             ))

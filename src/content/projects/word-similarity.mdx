@@ -1,0 +1,21 @@
+---
+title: "AI Word Similarity"
+description: "Real-time word similarity API over 1.2M+ GloVe embeddings, served from a Redis vector store via Rust/Axum."
+date: 2025-09-24
+published: true
+featured: true
+repository: "divizn/word-similarity"
+tags: ["rust", "axum", "tokio", "redis", "glove"]
+---
+
+A real-time AI word similarity service built on GloVe embeddings (1.2M+ words), stored in
+a Redis vector database via asynchronous pipelined `HSET` streaming.
+
+## Highlights
+
+- Low-latency similarity queries exposed through a Rust [Axum](https://github.com/tokio-rs/axum)
+  API, supporting multiple embedding sets/datasets.
+- Entire environment orchestrated with Docker Compose for reproducible development and
+  deployment.
+- Batched 500 embeddings per pipeline, cutting database write times by over 200% on large
+  datasets.
