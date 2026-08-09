@@ -26,9 +26,17 @@ export default function Particles(props: ParticlesProps) {
   let context: CanvasRenderingContext2D | null = null;
   let circles: Circle[] = [];
   let animationFrame = 0;
+  let particleRgb = "255 255 255";
   const mouse = { x: 0, y: 0 };
   const canvasSize = { w: 0, h: 0 };
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
+
+  const readParticleColor = () => {
+    if (typeof window === "undefined") return;
+    particleRgb =
+      getComputedStyle(document.documentElement).getPropertyValue("--particle-rgb").trim() ||
+      "255 255 255";
+  };
 
   const quantity = () => props.quantity ?? 30;
   const staticity = () => props.staticity ?? 50;
@@ -55,7 +63,7 @@ export default function Particles(props: ParticlesProps) {
     context.translate(translateX, translateY);
     context.beginPath();
     context.arc(x, y, size, 0, 2 * Math.PI);
-    context.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+    context.fillStyle = `rgb(${particleRgb} / ${alpha})`;
     context.fill();
     context.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!update) circles.push(circle);
@@ -162,16 +170,19 @@ export default function Particles(props: ParticlesProps) {
 
   onMount(() => {
     if (canvasRef) context = canvasRef.getContext("2d");
+    readParticleColor();
     initCanvas();
     animate();
     window.addEventListener("resize", initCanvas);
     window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("themechange", readParticleColor);
   });
 
   onCleanup(() => {
     if (typeof window === "undefined") return;
     cancelAnimationFrame(animationFrame);
     window.removeEventListener("resize", initCanvas);
+    window.removeEventListener("themechange", readParticleColor);
     window.removeEventListener("pointermove", onPointerMove);
   });
 

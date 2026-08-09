@@ -6,14 +6,14 @@ import { socials } from "@/constants/social";
 
 <BaseLayout title="Contact | Hassan" description="Get in touch.">
   <main class="mx-auto max-w-4xl animate-fade-in px-6 py-24">
-    <h1 class="font-display text-3xl text-zinc-100">Contact</h1>
-    <p class="mt-4 max-w-xl text-zinc-400">Reach out through any of the channels below.</p>
+    <h1 class="font-display text-3xl text-foreground">Contact</h1>
+    <p class="mt-4 max-w-xl text-muted-foreground">Reach out through any of the channels below.</p>
 
     <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
       {
         socials.map((social) => (
           <a href={social.href} target="_blank" rel="noopener noreferrer">
-            <Card class="transition-colors hover:border-zinc-700">
+            <Card class="transition-colors hover:border-border-strong">
               <CardHeader>
                 <CardTitle class="flex items-center gap-2">
                   <social.icon class="h-4 w-4" />

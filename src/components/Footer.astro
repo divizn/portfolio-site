@@ -2,9 +2,9 @@
 import { socials } from "@/constants/social";
 ---
 
-<footer class="border-t border-zinc-900">
+<footer class="border-t border-border">
   <div
-    class="mx-auto flex max-w-4xl flex-col items-center gap-4 px-6 py-10 text-sm text-zinc-400 sm:flex-row sm:justify-between"
+    class="mx-auto flex max-w-4xl flex-col items-center gap-4 px-6 py-10 text-sm text-muted-foreground sm:flex-row sm:justify-between"
   >
     <p>&copy; {new Date().getFullYear()} Hassan Javed</p>
     <ul class="flex gap-4">
@@ -15,7 +15,7 @@ import { socials } from "@/constants/social";
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-1.5 duration-200 hover:text-zinc-200"
+              class="flex items-center gap-1.5 duration-200 hover:text-foreground"
             >
               <social.icon class="h-4 w-4" />
               {social.label}

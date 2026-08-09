@@ -5,7 +5,7 @@ export function Card(props: ComponentProps<"div">) {
   const [local, rest] = splitProps(props, ["class"]);
   return (
     <div
-      class={cn("rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-sm", local.class)}
+      class={cn("rounded-xl border border-border bg-card shadow-sm", local.class)}
       {...rest}
     />
   );
@@ -19,13 +19,13 @@ export function CardHeader(props: ComponentProps<"div">) {
 export function CardTitle(props: ComponentProps<"h3">) {
   const [local, rest] = splitProps(props, ["class"]);
   return (
-    <h3 class={cn("font-display text-lg font-semibold text-zinc-100", local.class)} {...rest} />
+    <h3 class={cn("font-display text-lg font-semibold text-foreground", local.class)} {...rest} />
   );
 }
 
 export function CardDescription(props: ComponentProps<"p">) {
   const [local, rest] = splitProps(props, ["class"]);
-  return <p class={cn("text-sm text-zinc-400", local.class)} {...rest} />;
+  return <p class={cn("text-sm text-muted-foreground", local.class)} {...rest} />;
 }
 
 export function CardContent(props: ComponentProps<"div">) {

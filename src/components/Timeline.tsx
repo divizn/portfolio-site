@@ -26,7 +26,7 @@ export function Timeline(props: TimelineProps) {
 
   return (
     <div class={props.class}>
-      <ol class="relative border-l border-zinc-800 pl-6">
+      <ol class="relative border-l border-border pl-6">
         <For each={visibleItems()}>
           {(item, index) => (
             <li
@@ -37,12 +37,14 @@ export function Timeline(props: TimelineProps) {
             >
               <span
                 aria-hidden="true"
-                class="absolute top-1.5 -left-[29px] h-2.5 w-2.5 rounded-full border-2 border-black bg-zinc-500"
+                class="absolute top-1.5 -left-[29px] h-2.5 w-2.5 rounded-full border-2 border-background bg-muted-foreground"
               />
-              <span class="font-mono text-xs text-zinc-400">{item.dateRange}</span>
-              <h3 class="font-display mt-1 text-base font-semibold text-zinc-100">{item.title}</h3>
-              {item.subtitle && <p class="text-sm text-zinc-400">{item.subtitle}</p>}
-              <p class="mt-2 text-sm text-zinc-400">{item.description}</p>
+              <span class="font-mono text-xs text-muted-foreground">{item.dateRange}</span>
+              <h3 class="font-display mt-1 text-base font-semibold text-foreground">
+                {item.title}
+              </h3>
+              {item.subtitle && <p class="text-sm text-muted-foreground">{item.subtitle}</p>}
+              <p class="mt-2 text-sm text-muted-foreground">{item.description}</p>
             </li>
           )}
         </For>
@@ -52,7 +54,7 @@ export function Timeline(props: TimelineProps) {
           type="button"
           aria-expanded={expanded()}
           onClick={() => setExpanded((value) => !value)}
-          class="mt-6 flex items-center gap-1.5 rounded-full border border-zinc-700 bg-zinc-900/50 px-3 py-1.5 text-sm text-zinc-300 duration-200 hover:border-zinc-600 hover:bg-zinc-800 hover:text-zinc-100"
+          class="mt-6 flex items-center gap-1.5 rounded-full border border-border-strong bg-card px-3 py-1.5 text-sm text-muted-foreground duration-200 hover:border-foreground/30 hover:bg-muted hover:text-foreground"
         >
           {expanded() ? <FiChevronUp class="h-4 w-4" /> : <FiChevronDown class="h-4 w-4" />}
           <span>
