@@ -1,4 +1,5 @@
 import { splitProps, type ComponentProps, type JSX } from "solid-js";
+import { Dynamic } from "solid-js/web";
 import { cn } from "@/lib/utils";
 
 export function BentoGrid(props: ComponentProps<"div">) {
@@ -15,11 +16,20 @@ type BentoGridItemProps = Omit<ComponentProps<"div">, "title"> & {
   title: string;
   subtitle?: string;
   span?: 1 | 2;
+  /** Heading level for `title`, so callers can keep a document's heading order sequential. Defaults to h3. */
+  headingLevel?: "h2" | "h3" | "h4";
   children?: JSX.Element;
 };
 
 export function BentoGridItem(props: BentoGridItemProps) {
-  const [local, rest] = splitProps(props, ["class", "title", "subtitle", "span", "children"]);
+  const [local, rest] = splitProps(props, [
+    "class",
+    "title",
+    "subtitle",
+    "span",
+    "headingLevel",
+    "children",
+  ]);
   return (
     <div
       class={cn(
@@ -29,8 +39,13 @@ export function BentoGridItem(props: BentoGridItemProps) {
       )}
       {...rest}
     >
-      <h3 class="font-display text-base font-semibold text-zinc-100">{local.title}</h3>
-      {local.subtitle && <p class="mt-1 text-sm text-zinc-500">{local.subtitle}</p>}
+      <Dynamic
+        component={local.headingLevel ?? "h3"}
+        class="font-display text-base font-semibold text-zinc-100"
+      >
+        {local.title}
+      </Dynamic>
+      {local.subtitle && <p class="mt-1 text-sm text-zinc-400">{local.subtitle}</p>}
       {local.children && <div class="mt-3 text-sm text-zinc-400">{local.children}</div>}
     </div>
   );

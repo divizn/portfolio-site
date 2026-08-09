@@ -9,7 +9,7 @@ const projects = (await getCollection("projects", ({ data }) => data.published))
 );
 ---
 
-<BaseLayout title="Projects | hassanj.dev" description="Selected projects.">
+<BaseLayout title="Projects | Hassan" description="Selected projects.">
   <main class="mx-auto max-w-4xl animate-fade-in px-6 py-24">
     <h1 class="font-display text-3xl text-zinc-100">Projects</h1>
 
@@ -17,7 +17,11 @@ const projects = (await getCollection("projects", ({ data }) => data.published))
       {
         projects.map((project) => (
           <a href={`/projects/${project.id}`} class="block">
-            <BentoGridItem title={project.data.title} span={project.data.featured ? 2 : 1}>
+            <BentoGridItem
+              title={project.data.title}
+              span={project.data.featured ? 2 : 1}
+              headingLevel="h2"
+            >
               <p>{project.data.description}</p>
               {project.data.tags && project.data.tags.length > 0 && (
                 <div class="mt-3 flex flex-wrap gap-1.5">

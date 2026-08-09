@@ -11,7 +11,7 @@ const allProjects = await getCollection("projects", ({ data }) => data.published
 const featured = allProjects.filter((project) => project.data.featured);
 ---
 
-<BaseLayout title="hassanj.dev" description="Portfolio of Hassan Javed.">
+<BaseLayout title="Hassan" description="Portfolio of Hassan Javed.">
   <div class="relative">
     <Particles
       client:load
@@ -69,7 +69,7 @@ const featured = allProjects.filter((project) => project.data.featured);
       <section>
         <div class="flex items-baseline justify-between">
           <h2 class="font-display text-xl text-zinc-100">Projects</h2>
-          <a href="/projects" class="text-sm text-zinc-500 duration-200 hover:text-zinc-200">
+          <a href="/projects" class="text-sm text-zinc-400 duration-200 hover:text-zinc-200">
             View all &rarr;
           </a>
         </div>
