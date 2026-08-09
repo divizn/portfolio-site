@@ -36,14 +36,14 @@ const featured = allProjects.filter((project) => project.data.featured);
 
       <section>
         <h2 class="font-display text-xl text-zinc-100">Experience</h2>
-        <Timeline items={experience} class="mt-6" />
+        <Timeline items={experience} class="mt-6" client:visible />
       </section>
 
       <Separator class="my-12" />
 
       <section>
         <h2 class="font-display text-xl text-zinc-100">Education</h2>
-        <Timeline items={education} class="mt-6" />
+        <Timeline items={education} class="mt-6" client:visible />
       </section>
 
       <Separator class="my-12" />
