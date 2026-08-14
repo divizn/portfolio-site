@@ -1,18 +1,26 @@
 ---
 title: "Daily Quotes"
-description: "A site that displays a random quote every day, built with SvelteKit to learn its data fetching and stores."
+description: "A site that displays one quote a day, built with SvelteKit to learn its data fetching."
 date: 2025-09-23
 published: true
 featured: true
 url: "https://quotes.phons.dev"
 repository: "divizn/daily-quotes"
-tags: ["sveltekit", "typescript", "tailwindcss", "shadcn-svelte"]
+tags: ["sveltekit", "typescript", "tailwindcss", "redis"]
 ---
 
-A practice project built to learn SvelteKit's data fetching and state management via
-stores, and to experiment with UI design using shadcn-svelte.
+A practice project built to learn SvelteKit's data fetching, now serving one quote a
+day rather than a fresh one per visit.
+
+The quote of the day is cached in Upstash Redis under a date-stamped key, so everyone
+gets the same quote until midnight. The first visit of the day fetches and writes it,
+and concurrent first visits settle on one another's value rather than racing. If Redis
+or the quote API is unavailable the page still renders, just without the caching or
+with a fallback quote.
 
 ## Status
 
-A learning project, not actively maintained — the quote currently refreshes on every
-visit rather than once a day, and the UI is intentionally minimal.
+- **Daily quote**: done, cached in Redis and keyed on the London date.
+- **UI**: rebuilt to share the design system used across the rest of phons.dev.
+
+A learning project, not actively maintained.
