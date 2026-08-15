@@ -24,8 +24,8 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       '@ph0n/theme-kit':
-        specifier: file:../../theme-kit
-        version: file:../../theme-kit
+        specifier: ^0.1.0
+        version: 0.1.0
       '@tailwindcss/typography':
         specifier: ^0.5.20
         version: 0.5.20(tailwindcss@4.3.3)
@@ -1147,8 +1147,8 @@ packages:
   '@oxc-project/types@0.143.0':
     resolution: {integrity: sha512-u6JZdLBTLotrNC9Vd6vPssINdzcCzleKAH6EJKImQb7GtYvX5keN2dxkoK44stCc4tffE6QQRtZTXVSzsLUlWA==}
 
-  '@ph0n/theme-kit@file:../../theme-kit':
-    resolution: {directory: ../../theme-kit, type: directory}
+  '@ph0n/theme-kit@0.1.0':
+    resolution: {integrity: sha512-f+NmeoeEzZbByDM/ZOHlQW0l9L0OFMX8vY3uLBdC/Sq0052Uhemw43gZBfR7IdSiheeG/DfhblN5RQrUEcYbTQ==}
 
   '@pkgr/core@0.3.6':
     resolution: {integrity: sha512-SEeaJLb3qBNF/OaXnaR1NmmBbFYk1zC0ZH/52fATcRPLFg/p791YrcyFFy44Bo9sLaGuSuLp5Q6axbb/O+v/RA==}
@@ -4470,7 +4470,7 @@ snapshots:
 
   '@oxc-project/types@0.143.0': {}
 
-  '@ph0n/theme-kit@file:../../theme-kit': {}
+  '@ph0n/theme-kit@0.1.0': {}
 
   '@pkgr/core@0.3.6': {}
 
