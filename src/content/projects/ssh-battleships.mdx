@@ -1,0 +1,47 @@
+---
+title: "SSH Battleships"
+description: "Battleships played entirely in the terminal over SSH, against a bot or a friend with a room code, with wins kept on a leaderboard."
+date: 2026-08-15
+published: true
+featured: true
+url: "https://battleships.phons.dev"
+repository: "divizn/ssh-battleships"
+tags: ["go", "bubbletea", "wish", "redis", "terraform", "aws"]
+---
+
+A full game of Battleships served over SSH. There is nothing to install and no account to
+make: `ssh play.phons.dev` opens the game in your terminal, either against a bot or against
+a friend who joins with a room code.
+
+## How it works
+
+The server is a Go binary built on [Wish](https://github.com/charmbracelet/wish), which
+answers an SSH session with a [Bubble Tea](https://github.com/charmbracelet/bubbletea) TUI
+instead of a shell. Port 22 belongs to the game itself: administration goes through AWS
+Session Manager, so the host's own sshd is masked and the front door is the game.
+
+- Identity is the SSH public key fingerprint, the only value in an SSH session that is both
+  secret and verifiable. A keyless player still gets a full game and a session-local
+  win/loss tally, but cannot be ranked or carry a profile between connections.
+- Each room is an actor goroutine, and clients receive whole board snapshots with
+  latest-wins delivery. Because a snapshot is absolute rather than a diff, dropping a stale
+  one is safe, so a slow terminal skips frames instead of queueing them.
+- The board is 16x16 with a fleet of eight ships, three of which are not rectangles.
+  Ships may not touch, corners included, and sinking one reveals the water around it as a
+  cell state distinct from a miss.
+- The bot hunts and targets, probing every neighbour of every hit rather than just the ends
+  of an established line, which is what it takes to finish off an L-shaped ship. It clears
+  the board in roughly 117 shots out of 256.
+
+## Infrastructure
+
+Terraform provisions a single ARM `t4g.nano` on EC2 that then provisions itself: at boot it
+clones the repo, reads its secrets from Parameter Store, and starts the container, so a
+fresh instance is serving in about 150 seconds with nobody watching. Two EventBridge
+schedules start and stop it around its opening hours, since a box that is off five days a
+week costs a fraction of one that is not.
+
+Leaderboards live in Upstash Redis as two boards, ranked wins and every win including games
+against the bot. The landing page is Astro on Cloudflare Workers, and its live badge is
+driven by a heartbeat key that expires, so the badge follows reality whether the server was
+stopped on schedule, stopped by hand, or fell over.
