@@ -27,7 +27,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={theme() === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-      class="flex h-8 w-8 items-center justify-center rounded-full border border-border-strong text-foreground duration-200 hover:border-foreground/40"
+      class="flex h-8 w-8 items-center justify-center rounded-full border border-border-strong text-foreground duration-200 hover:border-accent"
     >
       {theme() === "dark" ? <FiSun class="h-4 w-4" /> : <FiMoon class="h-4 w-4" />}
     </button>

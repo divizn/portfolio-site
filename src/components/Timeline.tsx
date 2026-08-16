@@ -54,7 +54,7 @@ export function Timeline(props: TimelineProps) {
           type="button"
           aria-expanded={expanded()}
           onClick={() => setExpanded((value) => !value)}
-          class="mt-6 flex items-center gap-1.5 rounded-full border border-border-strong bg-card px-3 py-1.5 text-sm text-muted-foreground duration-200 hover:border-foreground/30 hover:bg-muted hover:text-foreground"
+          class="mt-6 flex items-center gap-1.5 rounded-full border border-border-strong bg-card px-3 py-1.5 text-sm text-muted-foreground duration-200 hover:border-accent hover:bg-muted hover:text-accent"
         >
           {expanded() ? <FiChevronUp class="h-4 w-4" /> : <FiChevronDown class="h-4 w-4" />}
           <span>
