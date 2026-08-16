@@ -6,9 +6,9 @@
 /* on .prose, not :root, because the plugin sets these on .prose itself */
 .prose {
   --tw-prose-body: var(--muted-foreground);
-  --tw-prose-headings: var(--foreground);
+  --tw-prose-headings: var(--accent);
   --tw-prose-lead: var(--muted-foreground);
-  --tw-prose-links: var(--foreground);
+  --tw-prose-links: var(--accent);
   --tw-prose-bold: var(--foreground);
   --tw-prose-counters: var(--muted-foreground);
   --tw-prose-bullets: var(--muted-foreground);

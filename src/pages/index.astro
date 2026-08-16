@@ -25,7 +25,7 @@ const featured = allProjects
 
     <main class="relative mx-auto max-w-4xl px-6 py-24">
       <section class="animate-fade-in">
-        <h1 class="font-display animate-title-glow text-4xl text-foreground sm:text-5xl">
+        <h1 class="font-display animate-title-glow text-4xl text-accent sm:text-5xl">
           Hassan Javed
         </h1>
         <p class="mt-4 max-w-xl text-muted-foreground">
@@ -38,14 +38,14 @@ const featured = allProjects
       <Separator class="my-12" />
 
       <section>
-        <h2 class="font-display text-xl text-foreground">Experience</h2>
+        <h2 class="font-display text-xl text-accent">Experience</h2>
         <Timeline items={experience} class="mt-6" client:visible />
       </section>
 
       <Separator class="my-12" />
 
       <section>
-        <h2 class="font-display text-xl text-foreground">Education</h2>
+        <h2 class="font-display text-xl text-accent">Education</h2>
         <Timeline items={education} class="mt-6" client:visible />
       </section>
 
@@ -53,10 +53,10 @@ const featured = allProjects
 
       <section>
         <div class="flex items-baseline justify-between">
-          <h2 class="font-display text-xl text-foreground">Projects</h2>
+          <h2 class="font-display text-xl text-accent">Projects</h2>
           <a
             href="/projects"
-            class="flex items-center gap-1.5 text-sm text-muted-foreground duration-200 hover:text-foreground"
+            class="flex items-center gap-1.5 text-sm text-muted-foreground duration-200 hover:text-accent"
           >
             View all
             <FiArrowRight class="h-4 w-4" />
