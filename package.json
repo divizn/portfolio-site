@@ -11,6 +11,7 @@
     "astro": "astro",
     "lint": "eslint .",
     "fmt": "prettier --write .",
+    "land-mask": "node scripts/build-land-mask.mjs",
     "cf:preview": "astro build && wrangler dev",
     "cf:deploy": "astro build && wrangler deploy"
   },
@@ -42,6 +43,7 @@
     "eslint": "^9.39.5",
     "eslint-plugin-astro": "^1.4.0",
     "eslint-plugin-solid": "^0.14.5",
+    "globals": "^17.11.0",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3",

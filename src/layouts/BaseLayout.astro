@@ -41,15 +41,17 @@ const ogImage = siteUrl ? new URL("/og.png", siteUrl).toString() : undefined;
     <meta name="twitter:card" content="summary_large_image" />
     <ClientRouter />
   </head>
-  <body class="flex min-h-screen flex-col bg-background text-foreground antialiased">
-    <Nav />
-    <div class="flex-1">
-      <slot />
-    </div>
-    <Footer />
+  <body class="bg-background text-foreground antialiased">
     <Globe
       client:visible
-      class="pointer-events-none fixed right-6 bottom-6 hidden h-[260px] w-[260px] opacity-70 md:block"
+      class="pointer-events-none fixed top-1/2 left-1/2 z-0 hidden h-[92vmin] w-[92vmin] -translate-x-1/2 -translate-y-1/2 md:block"
     />
+    <div class="relative z-10 flex min-h-screen flex-col">
+      <Nav />
+      <div class="flex-1">
+        <slot />
+      </div>
+      <Footer />
+    </div>
   </body>
 </html>
