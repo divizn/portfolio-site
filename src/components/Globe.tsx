@@ -107,7 +107,7 @@ export default function Globe(props: GlobeProps) {
 
     const scene = new Scene();
     const camera = new PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.z = 4.2;
+    camera.position.z = 3.9;
 
     renderer = new WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
