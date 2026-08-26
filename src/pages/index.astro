@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import { FiArrowRight } from "solid-icons/fi";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Particles from "@/components/Particles";
 import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
 import { Timeline } from "@/components/Timeline";
 import { Separator } from "@/components/ui/separator";
@@ -16,67 +15,59 @@ const featured = allProjects
 ---
 
 <BaseLayout title="Hassan" description="My portfolio.">
-  <div class="relative">
-    <Particles
-      client:load
-      class="pointer-events-none absolute inset-0 animate-fade-in"
-      quantity={80}
-    />
+  <main class="relative mx-auto max-w-4xl px-6 py-24">
+    <section class="animate-fade-in">
+      <h1 class="font-display animate-title-glow text-4xl text-accent sm:text-5xl">
+        Hassan Javed
+      </h1>
+      <p class="mt-4 max-w-xl text-muted-foreground">
+        Scientific Computing Graduate at STFC UKRI, working on simulation software and
+        backend systems. BSc Computer Science (First Class Honours), Brunel University
+        London.
+      </p>
+    </section>
 
-    <main class="relative mx-auto max-w-4xl px-6 py-24">
-      <section class="animate-fade-in">
-        <h1 class="font-display animate-title-glow text-4xl text-accent sm:text-5xl">
-          Hassan Javed
-        </h1>
-        <p class="mt-4 max-w-xl text-muted-foreground">
-          Scientific Computing Graduate at STFC UKRI, working on simulation software and
-          backend systems. BSc Computer Science (First Class Honours), Brunel University
-          London.
-        </p>
-      </section>
+    <Separator class="my-12" />
 
-      <Separator class="my-12" />
+    <section>
+      <h2 class="font-display text-xl text-accent">Experience</h2>
+      <Timeline items={experience} class="mt-6" client:visible />
+    </section>
 
-      <section>
-        <h2 class="font-display text-xl text-accent">Experience</h2>
-        <Timeline items={experience} class="mt-6" client:visible />
-      </section>
+    <Separator class="my-12" />
 
-      <Separator class="my-12" />
+    <section>
+      <h2 class="font-display text-xl text-accent">Education</h2>
+      <Timeline items={education} class="mt-6" client:visible />
+    </section>
 
-      <section>
-        <h2 class="font-display text-xl text-accent">Education</h2>
-        <Timeline items={education} class="mt-6" client:visible />
-      </section>
+    <Separator class="my-12" />
 
-      <Separator class="my-12" />
-
-      <section>
-        <div class="flex items-baseline justify-between">
-          <h2 class="font-display text-xl text-accent">Projects</h2>
-          <a
-            href="/projects"
-            class="flex items-center gap-1.5 text-sm text-muted-foreground duration-200 hover:text-accent"
-          >
-            View all
-            <FiArrowRight class="h-4 w-4" />
-          </a>
-        </div>
-        <BentoGrid class="mt-6">
-          {
-            featured.map((project, index) => (
-              <a
-                href={`/projects/${project.id}`}
-                class={index >= 4 ? "hidden lg:block" : undefined}
-              >
-                <BentoGridItem title={project.data.title} span={2}>
-                  {project.data.description}
-                </BentoGridItem>
-              </a>
-            ))
-          }
-        </BentoGrid>
-      </section>
-    </main>
-  </div>
+    <section>
+      <div class="flex items-baseline justify-between">
+        <h2 class="font-display text-xl text-accent">Projects</h2>
+        <a
+          href="/projects"
+          class="flex items-center gap-1.5 text-sm text-muted-foreground duration-200 hover:text-accent"
+        >
+          View all
+          <FiArrowRight class="h-4 w-4" />
+        </a>
+      </div>
+      <BentoGrid class="mt-6">
+        {
+          featured.map((project, index) => (
+            <a
+              href={`/projects/${project.id}`}
+              class={index >= 4 ? "hidden lg:block" : undefined}
+            >
+              <BentoGridItem title={project.data.title} span={2}>
+                {project.data.description}
+              </BentoGridItem>
+            </a>
+          ))
+        }
+      </BentoGrid>
+    </section>
+  </main>
 </BaseLayout>

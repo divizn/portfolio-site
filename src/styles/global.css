@@ -3,6 +3,15 @@
 @import "@fontsource-variable/inter";
 @plugin "@tailwindcss/typography";
 
+/* the mesh reads much heavier on white than on black at the same alpha */
+:root {
+  --globe-intensity: 1;
+}
+
+[data-theme="light"] {
+  --globe-intensity: 0.38;
+}
+
 /* on .prose, not :root, because the plugin sets these on .prose itself */
 .prose {
   --tw-prose-body: var(--muted-foreground);
