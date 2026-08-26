@@ -21,10 +21,6 @@ type GlobeProps = {
 
 const MASK_URL = "/land-mask.png";
 const SAMPLES = 22000;
-const RING_POINTS = 900;
-const RING_INNER = 1.32;
-const RING_OUTER = 1.58;
-const RING_TILT = 1.15;
 
 async function landMask() {
   const image = new Image();
@@ -63,16 +59,6 @@ function landPositions(isLand: (lon: number, lat: number) => boolean) {
     const lat = (Math.asin(y) * 180) / Math.PI;
     const lon = (Math.atan2(z, x) * 180) / Math.PI;
     if (isLand(lon, lat)) positions.push(x, y, z);
-  }
-  return positions;
-}
-
-function ringPositions() {
-  const positions: number[] = [];
-  for (let i = 0; i < RING_POINTS; i++) {
-    const theta = Math.random() * Math.PI * 2;
-    const r = RING_INNER + Math.random() * (RING_OUTER - RING_INNER);
-    positions.push(Math.cos(theta) * r, 0, Math.sin(theta) * r);
   }
   return positions;
 }
@@ -147,22 +133,14 @@ export default function Globe(props: GlobeProps) {
       "position",
       new Float32BufferAttribute(landPositions(isLand), 3),
     );
-    const ringGeometry = new BufferGeometry();
-    ringGeometry.setAttribute(
-      "position",
-      new Float32BufferAttribute(ringPositions(), 3),
-    );
 
     globe = new Group();
     globe.add(new Points(landGeometry, dotMaterial));
     globe.add(new Mesh(new SphereGeometry(0.985, 48, 48), occluderMaterial));
 
-    const ring = new Points(ringGeometry, dotMaterial);
-    ring.rotation.x = RING_TILT;
-
     const system = new Group();
     system.rotation.z = 0.35;
-    system.add(globe, ring);
+    system.add(globe);
     scene.add(system);
 
     readTheme();
@@ -184,7 +162,6 @@ export default function Globe(props: GlobeProps) {
       observer.disconnect();
       window.removeEventListener("themechange", readTheme);
       landGeometry.dispose();
-      ringGeometry.dispose();
       dotMaterial?.dispose();
       occluderMaterial?.dispose();
       renderer?.dispose();
