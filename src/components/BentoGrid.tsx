@@ -6,7 +6,7 @@ import {
 } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { FiArrowUpRight } from "solid-icons/fi";
-import { cn } from "@/lib/utils";
+import { cn } from "@ph0n/theme-kit/ui";
 
 function moveTorch(event: PointerEvent) {
   const card = (event.target as Element).closest<HTMLElement>(".graph-card");
