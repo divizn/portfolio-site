@@ -9,7 +9,6 @@ const projects = (await getCollection("projects", ({ data }) => data.published))
     id: project.id,
     title: project.data.title,
     description: project.data.description,
-    featured: project.data.featured,
     tags: project.data.tags,
   }));
 ---

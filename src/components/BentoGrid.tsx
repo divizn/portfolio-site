@@ -30,10 +30,9 @@ export function BentoGrid(props: ComponentProps<"div">) {
   );
 }
 
-type BentoGridItemProps = Omit<ComponentProps<"div">, "title"> & {
+type BentoGridItemProps = Omit<ComponentProps<"a">, "title"> & {
   title: string;
   subtitle?: string;
-  span?: 1 | 2;
   /** Heading level for `title`, so callers can keep a document's heading order sequential. Defaults to h3. */
   headingLevel?: "h2" | "h3" | "h4";
   children?: JSX.Element;
@@ -42,9 +41,9 @@ type BentoGridItemProps = Omit<ComponentProps<"div">, "title"> & {
 export function BentoGridItem(props: BentoGridItemProps) {
   const [local, rest] = splitProps(props, [
     "class",
+    "href",
     "title",
     "subtitle",
-    "span",
     "headingLevel",
     "children",
   ]);
@@ -54,22 +53,23 @@ export function BentoGridItem(props: BentoGridItemProps) {
   // producing a different DOM tree than SSR and breaking hydration.
   const resolvedChildren = resolveChildren(() => local.children);
   return (
-    <div
+    <Dynamic
+      component={local.href ? "a" : "div"}
+      href={local.href}
       class={cn(
-        "graph-card group relative h-full overflow-hidden rounded-xs border border-border bg-card p-6 hover:border-accent hover:shadow-[5px_5px_0_var(--accent)] in-focus-visible:border-accent in-focus-visible:shadow-[5px_5px_0_var(--accent)] motion-safe:hover:-translate-[3px] motion-safe:in-focus-visible:-translate-[3px]",
-        local.span === 2 && "sm:col-span-2",
+        "graph-card group relative h-full sm:nth-[4n]:col-span-2 sm:nth-[4n+1]:col-span-2 lg:last:odd:col-span-full overflow-hidden rounded-xs border border-border bg-card p-6 hover:border-accent hover:shadow-[5px_5px_0_var(--accent)] focus-visible:border-accent focus-visible:shadow-[5px_5px_0_var(--accent)] motion-safe:hover:-translate-[3px] motion-safe:focus-visible:-translate-[3px]",
         local.class,
       )}
       {...rest}
     >
       <Dynamic
         component={local.headingLevel ?? "h3"}
-        class="font-display flex justify-between gap-4 text-base font-semibold text-foreground group-hover:text-accent in-focus-visible:text-accent"
+        class="font-display flex justify-between gap-4 text-base font-semibold text-foreground group-hover:text-accent group-focus-visible:text-accent"
       >
         {local.title}
         <FiArrowUpRight
           aria-hidden="true"
-          class="graph-card-arrow mt-[0.15em] size-[0.85em] flex-none stroke-[2.5] text-muted-foreground group-hover:text-accent in-focus-visible:text-accent motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5 motion-safe:in-focus-visible:translate-x-0.5 motion-safe:in-focus-visible:-translate-y-0.5"
+          class="graph-card-arrow mt-[0.15em] size-[0.85em] flex-none stroke-[2.5] text-muted-foreground group-hover:text-accent group-focus-visible:text-accent motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5 motion-safe:group-focus-visible:translate-x-0.5 motion-safe:group-focus-visible:-translate-y-0.5"
         />
       </Dynamic>
       {local.subtitle && (
@@ -80,6 +80,6 @@ export function BentoGridItem(props: BentoGridItemProps) {
           {resolvedChildren()}
         </div>
       )}
-    </div>
+    </Dynamic>
   );
 }
