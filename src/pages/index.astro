@@ -78,14 +78,13 @@ const featured = allProjects
         <BentoGrid class="mt-6" client:visible>
           {
             featured.map((project, index) => (
-              <a
+              <BentoGridItem
                 href={`/projects/${project.id}`}
                 class={index >= 4 ? "hidden lg:block" : undefined}
+                title={project.data.title}
               >
-                <BentoGridItem title={project.data.title} span={2}>
-                  {project.data.description}
-                </BentoGridItem>
-              </a>
+                {project.data.description}
+              </BentoGridItem>
             ))
           }
         </BentoGrid>

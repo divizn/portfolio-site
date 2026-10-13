@@ -201,8 +201,8 @@ body {
   }
 }
 
-:focus-visible > .graph-card::before,
-:focus-visible > .graph-card::after {
+.graph-card:focus-visible::before,
+.graph-card:focus-visible::after {
   opacity: 1;
 }
 
