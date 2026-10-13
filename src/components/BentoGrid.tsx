@@ -5,7 +5,16 @@ import {
   type JSX,
 } from "solid-js";
 import { Dynamic } from "solid-js/web";
+import { FiArrowUpRight } from "solid-icons/fi";
 import { cn } from "@/lib/utils";
+
+function moveTorch(event: PointerEvent) {
+  const card = (event.target as Element).closest<HTMLElement>(".graph-card");
+  if (!card) return;
+  const box = card.getBoundingClientRect();
+  card.style.setProperty("--tx", `${event.clientX - box.left}px`);
+  card.style.setProperty("--ty", `${event.clientY - box.top}px`);
+}
 
 export function BentoGrid(props: ComponentProps<"div">) {
   const [local, rest] = splitProps(props, ["class"]);
@@ -15,6 +24,7 @@ export function BentoGrid(props: ComponentProps<"div">) {
         "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3",
         local.class,
       )}
+      onPointerMove={moveTorch}
       {...rest}
     />
   );
@@ -46,7 +56,7 @@ export function BentoGridItem(props: BentoGridItemProps) {
   return (
     <div
       class={cn(
-        "group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-colors hover:border-border-strong",
+        "graph-card group relative h-full overflow-hidden rounded-xs border border-border bg-card p-6 hover:border-accent hover:shadow-[5px_5px_0_var(--accent)] in-focus-visible:border-accent in-focus-visible:shadow-[5px_5px_0_var(--accent)] motion-safe:hover:-translate-[3px] motion-safe:in-focus-visible:-translate-[3px]",
         local.span === 2 && "sm:col-span-2",
         local.class,
       )}
@@ -54,9 +64,13 @@ export function BentoGridItem(props: BentoGridItemProps) {
     >
       <Dynamic
         component={local.headingLevel ?? "h3"}
-        class="font-display text-base font-semibold text-foreground"
+        class="font-display flex justify-between gap-4 text-base font-semibold text-foreground group-hover:text-accent in-focus-visible:text-accent"
       >
         {local.title}
+        <FiArrowUpRight
+          aria-hidden="true"
+          class="graph-card-arrow mt-[0.15em] size-[0.85em] flex-none stroke-[2.5] text-muted-foreground group-hover:text-accent in-focus-visible:text-accent motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5 motion-safe:in-focus-visible:translate-x-0.5 motion-safe:in-focus-visible:-translate-y-0.5"
+        />
       </Dynamic>
       {local.subtitle && (
         <p class="mt-1 text-sm text-muted-foreground">{local.subtitle}</p>
