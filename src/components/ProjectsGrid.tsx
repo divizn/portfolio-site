@@ -1,6 +1,5 @@
 import { For, Show } from "solid-js";
-import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
-import { Badge } from "@ph0n/theme-kit/ui";
+import { Badge, BentoGrid, BentoGridItem } from "@ph0n/theme-kit/ui";
 
 export type ProjectCard = {
   id: string;
