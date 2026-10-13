@@ -1,5 +1,5 @@
 import { createSignal, onCleanup, onMount } from "solid-js";
-import { cn } from "@/lib/utils";
+import { cn } from "@ph0n/theme-kit/ui";
 
 const MAJOR = 120;
 const PARALLAX = 0.4;

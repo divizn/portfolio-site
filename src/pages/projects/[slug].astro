@@ -2,7 +2,7 @@
 import { getCollection, render } from "astro:content";
 import { FiArrowLeft, FiExternalLink, FiGithub } from "solid-icons/fi";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@ph0n/theme-kit/ui";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects", ({ data }) => data.published);

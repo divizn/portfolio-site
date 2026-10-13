@@ -1,6 +1,6 @@
 import { For, Show, createMemo, createSignal } from "solid-js";
 import { FiChevronDown, FiChevronUp } from "solid-icons/fi";
-import { cn } from "@/lib/utils";
+import { cn } from "@ph0n/theme-kit/ui";
 
 export type TimelineEntry = {
   title: string;
