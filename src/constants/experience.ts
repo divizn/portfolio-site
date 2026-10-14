@@ -18,7 +18,7 @@ export const experience: ExperienceItem[] = [
     subtitle: "BTMG USA",
     dateRange: "September 2024 – April 2025",
     description:
-      "Built a reusable React component library (20+ elements) for an attendance and project management system. Set up CI/CD with GitHub Actions (45% faster deployments) and Docker-based dev environments, and worked with DevOps on AWS CloudWatch monitoring.",
+      "Built GitHub Actions CI/CD pipelines with automated testing and linting, reducing deployment time by 45%. Standardised development environments with Docker and worked with DevOps on AWS CloudWatch monitoring and logging for production services.",
   },
   {
     title: "Software Engineer Intern",
