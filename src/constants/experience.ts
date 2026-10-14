@@ -31,22 +31,4 @@ export const experience: ExperienceItem[] = [
       },
     ],
   },
-  {
-    title: "Junior Software Engineer",
-    subtitle: "BTMG USA",
-    dateRange: "September 2024 – April 2025",
-    points: [
-      "Built GitHub Actions CI/CD pipelines with automated testing and linting, reducing deployment time by 45%.",
-      "Standardised development environments with Docker and worked with DevOps on AWS CloudWatch monitoring and logging for production services.",
-    ],
-  },
-  {
-    title: "Software Engineer Intern",
-    subtitle: "BTMG USA",
-    dateRange: "June 2022 – September 2022",
-    points: [
-      "Built a REST API with Express and MySQL, improving platform integration and system throughput by 30%.",
-      "Reduced page load time by 45% on a core internal tool through React state and render optimisations, fixing 6 edge cases along the way.",
-    ],
-  },
 ];
