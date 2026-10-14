@@ -5,7 +5,7 @@ date: 2025-09-24
 published: true
 featured: true
 repository: "divizn/word-similarity"
-tags: ["rust", "axum", "tokio", "redis", "glove"]
+tags: ["rust", "axum", "tokio", "redis", "glove", "docker"]
 ---
 
 A real-time AI word similarity service built on GloVe embeddings (1.2M+ words), stored in
@@ -17,5 +17,5 @@ a Redis vector database via asynchronous pipelined `HSET` streaming.
   API, supporting multiple embedding sets/datasets.
 - Entire environment orchestrated with Docker Compose for reproducible development and
   deployment.
-- Batched 500 embeddings per pipeline, cutting database write times by over 200% on large
-  datasets.
+- Asynchronous ingestion with Tokio and Redis pipelining, batching 500 embeddings per operation
+  to reduce network overhead during large dataset imports.

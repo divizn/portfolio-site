@@ -7,7 +7,7 @@ export type EducationItem = {
 
 export const education: EducationItem[] = [
   {
-    title: "BSc Computer Science — First Class Honours",
+    title: "BSc Computer Science, First Class Honours",
     subtitle: "Brunel University London",
     dateRange: "September 2021 – July 2024",
     description: "First Class Honours (1st) in Computer Science.",

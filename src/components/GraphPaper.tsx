@@ -5,6 +5,7 @@ const MAJOR = 120;
 const PARALLAX = 0.4;
 
 export function GraphPaper(props: { class?: string }) {
+  let paper: HTMLDivElement | undefined;
   let sheet: HTMLDivElement | undefined;
   let torch: HTMLDivElement | undefined;
   const [lit, setLit] = createSignal(false);
@@ -16,10 +17,18 @@ export function GraphPaper(props: { class?: string }) {
 
     const update = () => {
       frame = 0;
-      if (!sheet || !torch) return;
+      if (!paper || !sheet || !torch) return;
       const shift = still.matches ? 0 : (window.scrollY * PARALLAX) % MAJOR;
       sheet.style.transform = `translate3d(0, ${shift}px, 0)`;
       if (!pointer) return;
+      const area = paper.getBoundingClientRect();
+      const inside =
+        pointer.y >= area.top &&
+        pointer.y <= area.bottom &&
+        pointer.x >= area.left &&
+        pointer.x <= area.right;
+      setLit(inside);
+      if (!inside) return;
       const box = sheet.getBoundingClientRect();
       torch.style.setProperty("--mx", `${pointer.x - box.left}px`);
       torch.style.setProperty("--my", `${pointer.y - box.top}px`);
@@ -30,7 +39,6 @@ export function GraphPaper(props: { class?: string }) {
     const move = (event: PointerEvent) => {
       if (event.pointerType !== "mouse") return;
       pointer = { x: event.clientX, y: event.clientY };
-      setLit(true);
       schedule();
     };
     const leave = () => setLit(false);
@@ -50,6 +58,7 @@ export function GraphPaper(props: { class?: string }) {
 
   return (
     <div
+      ref={paper}
       aria-hidden="true"
       class={cn("graph-paper pointer-events-none overflow-hidden", props.class)}
     >

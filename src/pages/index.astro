@@ -4,6 +4,7 @@ import { FiArrowRight } from "solid-icons/fi";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Timeline } from "@/components/Timeline";
 import { GraphPaper } from "@/components/GraphPaper";
+import { Skills } from "@/components/Skills";
 import { BentoGrid, BentoGridItem, Separator } from "@ph0n/theme-kit/ui";
 import { experience } from "@/constants/experience";
 import { education } from "@/constants/education";
@@ -59,6 +60,13 @@ const featured = allProjects
       <section>
         <h2 class="font-display text-xl text-accent">Education</h2>
         <Timeline items={education} class="mt-6" client:visible />
+      </section>
+
+      <Separator class="my-12" />
+
+      <section>
+        <h2 class="font-display text-xl text-accent">Skills</h2>
+        <Skills class="mt-6" />
       </section>
 
       <Separator class="my-12" />
