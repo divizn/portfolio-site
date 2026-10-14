@@ -9,9 +9,9 @@ export const experience: ExperienceItem[] = [
   {
     title: "Scientific Computing Graduate",
     subtitle: "Science and Technology Facilities Council (STFC UKRI)",
-    dateRange: "May 2026 – Current",
+    dateRange: "May 2026 – Present",
     description:
-      "STFC Scientific Computing Graduate Programme at Daresbury Laboratory. Building and maintaining components for liquid hydrogen heat transfer simulation workflows using Python, FEniCSx, OpenFOAM, and MUI, supporting coupled multiphysics experiments across CFD and finite element tooling.",
+      "STFC Scientific Computing Graduate Programme at Daresbury Laboratory. Developing software for HASTA, an EU Horizon Europe project building simulation tools for cryogenic liquid hydrogen aircraft tanks in a consortium including Airbus: integrating and debugging coupled multiphysics components across Python, FEniCSx, and OpenFOAM, building reproducible Linux environments with Spack and Docker, and investigating parallel solver coupling with MUI and MPI. Also built Sci-GCP at a Google Cloud, PA Consulting and STFC hackathon: an agentic AI prototype in Google Cloud Agent Studio with the Central Laser Facility, routing queries to subagents for EPICS telemetry, with BigQuery ML forecasting and an arXiv pipeline grounding Gemini responses.",
   },
   {
     title: "Junior Software Engineer",
@@ -25,7 +25,7 @@ export const experience: ExperienceItem[] = [
     subtitle: "BTMG USA",
     dateRange: "June 2022 – September 2022",
     description:
-      "Developed a RESTful API with Express and MySQL, improving platform efficiency by 30%. Cut page load time by 45% via React state optimizations and reduced bug reports by 25% resolving edge-case issues.",
+      "Built a REST API with Express and MySQL, improving platform integration and system throughput by 30%. Cut page load time by 45% on a core internal tool through React state and render optimisations, fixing 6 edge cases along the way.",
   },
   {
     title: "Freelance Software Engineer",
