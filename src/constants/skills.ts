@@ -1,34 +1,48 @@
-export type SkillGroup = {
-  label: string;
-  items: string[];
+import type { IconTypes } from "solid-icons";
+import { FaBrandsAws, FaBrandsJava } from "solid-icons/fa";
+import { FiDatabase, FiShare2 } from "solid-icons/fi";
+import {
+  SiC,
+  SiCplusplus,
+  SiDocker,
+  SiGit,
+  SiGithubactions,
+  SiGo,
+  SiGooglecloud,
+  SiLinux,
+  SiPostgresql,
+  SiPython,
+  SiRedis,
+  SiRust,
+  SiTerraform,
+  SiTypescript,
+} from "solid-icons/si";
+
+export type Skill = {
+  name: string;
+  icon: IconTypes;
 };
 
-export const skills: SkillGroup[] = [
-  {
-    label: "Languages",
-    items: [
-      "Go",
-      "Python",
-      "Rust",
-      "TypeScript/JavaScript",
-      "C/C++",
-      "SQL",
-      "Java",
-    ],
-  },
-  {
-    label: "Tools / Platforms",
-    items: [
-      "AWS",
-      "Google Cloud",
-      "Docker",
-      "Terraform",
-      "GitHub Actions",
-      "PostgreSQL",
-      "Redis",
-      "MPI",
-      "Linux",
-      "Git",
-    ],
-  },
+export const languages: Skill[] = [
+  { name: "Go", icon: SiGo },
+  { name: "Python", icon: SiPython },
+  { name: "Rust", icon: SiRust },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "C", icon: SiC },
+  { name: "C++", icon: SiCplusplus },
+  { name: "SQL", icon: FiDatabase },
+  { name: "Java", icon: FaBrandsJava },
+];
+
+export const tools: Skill[] = [
+  { name: "AWS", icon: FaBrandsAws },
+  { name: "Google Cloud", icon: SiGooglecloud },
+  { name: "Docker", icon: SiDocker },
+  { name: "Terraform", icon: SiTerraform },
+  { name: "GitHub Actions", icon: SiGithubactions },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "Redis", icon: SiRedis },
+  { name: "MPI", icon: FiShare2 },
+  { name: "Linux", icon: SiLinux },
+  { name: "Git", icon: SiGit },
 ];

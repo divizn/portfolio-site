@@ -4,10 +4,10 @@ import { FiArrowRight } from "solid-icons/fi";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Timeline } from "@/components/Timeline";
 import { GraphPaper } from "@/components/GraphPaper";
-import { Badge, BentoGrid, BentoGridItem, Separator } from "@ph0n/theme-kit/ui";
+import { Skills } from "@/components/Skills";
+import { BentoGrid, BentoGridItem, Separator } from "@ph0n/theme-kit/ui";
 import { experience } from "@/constants/experience";
 import { education } from "@/constants/education";
-import { skills } from "@/constants/skills";
 
 const allProjects = await getCollection(
   "projects",
@@ -66,20 +66,7 @@ const featured = allProjects
 
       <section>
         <h2 class="font-display text-xl text-accent">Skills</h2>
-        <dl class="mt-6 space-y-4">
-          {
-            skills.map((group) => (
-              <div>
-                <dt class="text-sm text-muted-foreground">{group.label}</dt>
-                <dd class="mt-2 flex flex-wrap gap-1.5">
-                  {group.items.map((item) => (
-                    <Badge variant="outline">{item}</Badge>
-                  ))}
-                </dd>
-              </div>
-            ))
-          }
-        </dl>
+        <Skills class="mt-6" />
       </section>
 
       <Separator class="my-12" />
