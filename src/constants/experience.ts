@@ -8,7 +8,7 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    title: "Scientific Computing Graduate",
+    title: "Scientific Computing Graduate (Software Engineering)",
     subtitle: "Science and Technology Facilities Council (STFC UKRI)",
     dateRange: "May 2026 – Present",
     projects: [
