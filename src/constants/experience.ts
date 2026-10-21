@@ -16,9 +16,8 @@ export const experience: ExperienceItem[] = [
         title: "HASTA: Liquid Hydrogen Aircraft Tank Simulation",
         dateRange: "May 2026 – November 2026",
         points: [
-          "Developed software for HASTA, an EU Horizon Europe project building simulation tools for cryogenic liquid hydrogen aircraft tanks, in a consortium including Airbus.",
-          "Integrated and debugged coupled multiphysics components across Python, FEniCSx and OpenFOAM, tracing data flow, configuration and failures through the stack.",
-          "Built reproducible Linux environments with Spack and Docker, and investigated parallel solver coupling with MUI and MPI.",
+          "Integrated and debugged components built independently by partner teams across an EU Horizon Europe consortium including Airbus, tracing data flow, configuration and failures across a coupled stack of Python, FEniCSx and OpenFOAM simulation codes.",
+          "Built reproducible Linux development environments with Spack and Docker, and investigated interprocess data exchange between parallel processes using MUI and MPI.",
         ],
       },
       {
