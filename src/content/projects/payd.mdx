@@ -1,0 +1,33 @@
+---
+title: "payd"
+description: "A card payments API in Go on PostgreSQL, with idempotency keys, a double-entry ledger and a transactional outbox."
+date: 2026-10-20
+published: true
+featured: true
+repository: "divizn/payd"
+tags: ["go", "postgresql", "pgx", "goose", "prometheus", "docker"]
+---
+
+A payments service with a JSON API to authorise, capture, refund and void card payments,
+backed by PostgreSQL alone. Every write takes a Stripe-style idempotency key, every money
+movement is a balanced pair of ledger entries, and every state change writes an outbox
+event, all committed in one transaction.
+
+## Guarantees
+
+- One key, one effect: 50 identical concurrent creates made exactly one payment.
+- No over-refund under concurrency: 50 refunds of 30 against a capture of 100 let exactly 3
+  through.
+- Crashes leave nothing half applied: 600 `SIGKILL`s under load left the ledger balanced
+  with no outbox event lost.
+
+## Performance
+
+Throughput rose 51% (870 to 1,313 req/s) from sizing the connection pool for an acquirer
+that takes 20 ms to answer.
+
+## Testing
+
+The tests were checked by reintroducing 11 bugs on purpose, such as dropping the unique
+index on idempotency keys or writing the ledger in a separate transaction. 7 were caught on
+all 20 runs. Authorisation goes to a fake acquirer that can be made slow, flaky or silent.

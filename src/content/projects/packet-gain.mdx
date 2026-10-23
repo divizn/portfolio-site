@@ -1,0 +1,41 @@
+---
+title: "packet-gain"
+description: "A multipath UDP relay in C++20 that sends each packet down several paths and keeps the first copy to arrive."
+date: 2026-10-22
+published: true
+featured: true
+repository: "divizn/packet-gain"
+tags: ["c++", "udp", "epoll", "openssl", "catch2", "cmake"]
+---
+
+A multipath UDP relay for low-latency traffic such as online games. The client knows several
+paths to an exit node, each direct or through a chain of relays. It sends each packet down
+the best of them and the exit forwards the first copy to arrive, so a packet is only lost if
+every path drops it. At 10% injected loss on each path, round-trip loss fell from 19% to
+0.27% over 3 paths.
+
+## How it works
+
+- Every path is probed for latency, jitter and loss. When the best one goes dark, the
+  client fails over to the next in about 165 ms.
+- `recvmmsg`/`sendmmsg` batching on `epoll`, 32 datagrams per call, with scatter-gather sends
+  so a payload is never copied however many paths it goes down.
+- HMAC-SHA256 on every packet, checked before a session is created, so forged packets can't
+  open sessions or reach the target.
+- A sliding-window dedup bitmap, the same shape as the anti-replay window in IPsec and
+  WireGuard.
+
+## Bugs found
+
+- Path selection marked healthy paths dead under 20% loss, measuring 8.8% loss against 0.8%
+  expected. Selection now always fills the paths it needs, live ones first, and the same
+  test measures 0.8%.
+- A test losing a third of its packets was traced to receive-buffer overflow
+  (`UdpRcvbufErrors` up 484 in `nstat`), from bursting 800 datagrams into a default-sized
+  buffer.
+
+## Testing
+
+36 Catch2 tests run under ASan and UBSan in CI, including a 200-seed dedup harness checked
+against a reference model. Loss is injected by a userspace impairer rather than `tc netem`,
+so the tests need no root and stay deterministic.

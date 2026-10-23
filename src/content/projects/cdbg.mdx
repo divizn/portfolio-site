@@ -1,0 +1,32 @@
+---
+title: "cdbg"
+description: "A small x86-64 Linux debugger in C++20, built on ptrace with a hand-written ELF symbol parser."
+date: 2026-10-19
+published: true
+featured: true
+repository: "divizn/cdbg"
+tags: ["c++", "ptrace", "elf", "catch2", "cmake"]
+---
+
+A debugger for x86-64 Linux. It launches or attaches to a process, sets breakpoints by
+address or function name, continues and single-steps, and reads and writes registers and
+memory.
+
+## How it works
+
+- Software breakpoints patch `int3` over the first byte of an instruction. Resuming from one
+  restores the original byte, single-steps, and puts the `int3` back.
+- Symbols come from a hand-written ELF64 parser reading `.symtab` (or `.dynsym`).
+- PIE binaries load at a random address, so the load bias is read from `/proc/<pid>/maps`.
+
+## Attach race
+
+An attach test failed 19 of 300 runs in the sanitizer build. Attaching with
+`PTRACE_ATTACH` while the target was still inside `execve` meant the kernel sent an extra
+`SIGTRAP`, which was mistaken for the attach stop. Switching to `PTRACE_SEIZE` with
+`PTRACE_INTERRUPT` removed it: 0 failures in 1,000 runs.
+
+## Testing
+
+21 Catch2 tests run real C targets under the debugger in CI, in both a plain and an
+ASan/UBSan build.

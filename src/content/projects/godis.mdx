@@ -1,0 +1,45 @@
+---
+title: "godis"
+description: "A distributed key-value store written from scratch in Go, replicated by a hand-written Raft implementation."
+date: 2026-10-19
+published: true
+featured: true
+repository: "divizn/godis"
+tags: ["go", "raft", "tcp", "prometheus", "docker"]
+---
+
+A distributed key-value store built from scratch in Go: a Raft-replicated log, an in-memory
+map as the state machine, and a small binary TCP protocol. Storage, the write-ahead log,
+consensus and networking use only the standard library. It runs as a 3-node cluster with
+linearizable reads and writes, and applies each write exactly once even when a client
+retries it.
+
+## Consensus
+
+- Raft written by hand: leader election, log replication, ReadIndex reads and check-quorum
+  step-down.
+- Client sessions deduplicate retried writes, so a write whose outcome was unknown can be
+  resent safely.
+- Live membership changes, one server at a time, with new nodes catching up as learners
+  before they vote.
+
+## Storage
+
+- A crash-safe write-ahead log with checksummed records and torn-tail truncation on replay.
+- Snapshot compaction: after 200,000 writes the log shrinks from 30.2 MB to 1.5 MB, and
+  followers that fall behind are sent the snapshot.
+- Group commit batches writes behind one fsync, raising parallel write throughput 2.2x at 8
+  clients and 5.5x at 32.
+
+## Testing
+
+- A hand-written linearizability checker over 2,000 seeded fault-injection runs, about
+  265,000 operations. It found a real bug where a write was applied twice after a leader
+  stepped down.
+- Simulated power loss on an in-memory filesystem that keeps only fsynced data: 500 runs and
+  about 9,000 crashes, with the cluster required to recover every time.
+- 17 membership bugs reintroduced on purpose, each caught by a unit test, and 500
+  crash-and-reconfigure fuzz runs passing.
+
+Every node exposes Prometheus metrics (latency histograms, Raft term, commit index, leader
+changes), and the cluster runs under Docker Compose.
