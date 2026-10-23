@@ -13,6 +13,10 @@ interface Props {
 const { title, description } = Astro.props;
 const siteUrl = Astro.site;
 const ogImage = siteUrl ? new URL("/og.png", siteUrl).toString() : undefined;
+const canonical =
+  siteUrl && !Astro.url.pathname.startsWith("/404")
+    ? new URL(Astro.url.pathname, siteUrl).toString()
+    : undefined;
 ---
 
 <html lang="en" class="bg-background">
@@ -34,6 +38,8 @@ const ogImage = siteUrl ? new URL("/og.png", siteUrl).toString() : undefined;
     {description && <meta name="description" content={description} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {canonical && <meta property="og:url" content={canonical} />}
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}

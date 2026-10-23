@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hassanj.dev/sitemap-index.xml
