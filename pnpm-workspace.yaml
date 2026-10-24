@@ -5,3 +5,5 @@ allowBuilds:
   workerd: true
 minimumReleaseAgeExclude:
   - '@ph0n/theme-kit'
+overrides:
+  "@tailwindcss/typography>postcss-selector-parser": 7.1.6
