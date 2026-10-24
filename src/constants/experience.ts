@@ -14,10 +14,10 @@ export const experience: ExperienceItem[] = [
     projects: [
       {
         title: "HASTA: Liquid Hydrogen Aircraft Tank Simulation",
-        dateRange: "May 2026 – November 2026",
+        dateRange: "May 2026 – October 2026",
         points: [
-          "Integrated and debugged components built independently by partner teams across an EU Horizon Europe consortium including Airbus, tracing data flow, configuration and failures across a coupled stack of Python, FEniCSx and OpenFOAM simulation codes.",
-          "Built reproducible Linux development environments with Spack and Docker, and investigated interprocess data exchange between parallel processes using MUI and MPI.",
+          "Added linear and radial basis function interpolation to both sides of an MPI-coupled OpenFOAM (C++) and FEniCSx (Python) simulation, cutting transfer error 6x, and fixed a parallel ghost-point crash.",
+          "Built the coupled toolchain with Spack and Docker on Linux, fixing an OpenMPI 5 build break, and batched boundary-condition evaluation for a 43x speedup with bit-identical output.",
         ],
       },
       {
